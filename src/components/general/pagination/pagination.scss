@@ -1,0 +1,143 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.pagination {
+    --pagination-item-size: 36px;
+    --pagination-item-gap: 6px;
+    --pagination-font-size: 16px;
+    --pagination-border-radius: 2px;
+    --pagination-color: var(--color-6);
+    --pagination-color-hover: var(--color-white);
+    --pagination-color-active: var(--color-white);
+    --pagination-border: var(--color-5);
+    --pagination-border-hover: var(--color-3);
+    --pagination-border-active: var(--color-3);
+    --pagination-bg: var(--color-white);
+    --pagination-bg-hover: var(--color-3);
+    --pagination-bg-active: var(--color-3);
+
+    width: fit-content;
+    margin-top: 24px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include bp.mq(laptop) {
+        margin-top: 30px;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--pagination-item-gap);
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-width: var(--pagination-item-size);
+        height: var(--pagination-item-size);
+        font-family: var(--font-family-primary);
+        font-size: var(--pagination-font-size);
+        font-weight: 400;
+        line-height: 1;
+        color: var(--pagination-color);
+        transition: all 0.2s ease-in-out;
+
+        a,
+        > span {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding: 0 8px;
+            color: inherit;
+            text-decoration: none;
+            background: var(--pagination-bg);
+            border: 1px solid var(--pagination-border);
+            border-radius: var(--pagination-border-radius);
+            transition: all 0.2s ease-in-out;
+        }
+
+        a {
+            &:hover {
+                color: var(--pagination-color-hover);
+                background: var(--pagination-bg-hover);
+                border-color: var(--pagination-border-hover);
+            }
+        }
+
+        // --------------------------------------
+        // States
+        // --------------------------------------
+
+        &.active {
+            > span {
+                color: var(--pagination-color-active);
+                background: var(--pagination-bg-hover);
+                border-color: var(--pagination-border-active);
+            }
+        }
+
+        &.disabled {
+            pointer-events: none;
+        }
+
+        // --------------------------------------
+        // Navigation arrows
+        // --------------------------------------
+
+        &.prev,
+        &.next {
+            a,
+            > span {
+                padding: 0;
+                background: transparent;
+                border: 1px solid transparent;
+
+                svg {
+                    path {
+                        stroke: var(--color-primary);
+                    }
+                }
+
+                &:hover {
+                    border-color: transparent;
+
+                    svg {
+                        path {
+                            stroke: var(--color-primary-dark);
+                        }
+                    }
+                }
+
+                span {
+                    display: flex;
+                }
+            }
+
+            svg {
+                path {
+                    transition: all 0.2s ease-in-out;
+                }
+            }
+
+            &.disabled {
+                svg {
+                    path {
+                        stroke: var(--color-5);
+                    }
+                }
+            }
+        }
+    }
+}

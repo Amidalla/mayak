@@ -1,0 +1,108 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.product-payment {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 24px;
+    background: var(--color-white);
+    border-radius: 10px;
+
+    @include bp.mq(tablet) {
+        padding: unset;
+    }
+
+    > .title {
+        margin-top: 0;
+        margin-bottom: 16px;
+        font-size: 26px;
+        font-weight: 600;
+        line-height: 150%;
+
+        @include bp.mq(laptop-l) {
+            font-size: 20px;
+        }
+        @include bp.mq(tablet) {
+            font-size: 18px;
+        }
+    }
+
+    .frame {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 32px;
+
+        > .title {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+            margin-top: 8px;
+            margin-bottom: 8px;
+            font-size: 20px;
+            font-weight: 500;
+
+            @include bp.mq(laptop) {
+                font-size: 18px;
+            }
+        }
+
+        .items {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 8px;
+
+            .item {
+                padding: 8px 15px;
+                background: var(--color-1);
+                border-radius: 999px;
+
+                @include bp.mq(laptop) {
+                    border-radius: 10px;
+                }
+            }
+        }
+
+        > .text {
+            margin-top: 8px;
+            margin-bottom: 8px;
+            font-weight: 700;
+            line-height: 150%;
+
+            @include bp.mq(laptop) {
+                font-size: 15px;
+            }
+        }
+
+        .attention {
+            display: flex;
+            gap: 8px;
+            align-items: flex-start;
+            padding: 15px;
+            margin-top: 16px;
+            background: var(--color-green-light);
+
+            .icon {
+                display: flex;
+                flex: 0 0 auto;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .text {
+                line-height: 150%;
+                color: var(--color-green);
+
+                @include bp.mq(laptop) {
+                    font-size: 15px;
+                }
+            }
+        }
+
+        @include mixin.reset-child-outer-margins;
+    }
+
+    @include mixin.reset-child-outer-margins;
+}

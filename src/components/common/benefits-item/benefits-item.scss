@@ -1,0 +1,44 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.benefits-item {
+    position: relative;
+    display: flex;
+    gap: 8px;
+    align-items: flex-start;
+    padding: 30px;
+    background: var(--color-white);
+    border-radius: 20px;
+
+    @include bp.mq(tablet) {
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    &::before {
+        flex: 0 0 auto;
+        width: 38px;
+        height: 38px;
+        content: "";
+        background: var(--color-primary);
+        background-image: url("data:image/svg+xml,%3Csvg width='18' height='11' viewBox='0 0 18 11' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 4.5L7 9.5L16 1.5' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        border-radius: 50%;
+
+        @include bp.mq(tablet) {
+            width: 32px;
+            height: 32px;
+        }
+    }
+
+    .name {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 150%;
+
+        @include bp.mq(laptop) {
+            font-size: 15px;
+        }
+    }
+}

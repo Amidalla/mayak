@@ -1,0 +1,34 @@
+@use "core/popup" as *;
+
+.popup-price {
+    @include popup;
+
+    .frame {
+        .text {
+            font-size: 16px;
+            color: var(--color-2);
+        }
+
+        .warning {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            padding: 12px;
+            margin-top: 20px;
+            background: var(--color-1);
+            border-radius: 10px;
+
+            .icon {
+                svg {
+                    width: 32px;
+                    height: 32px;
+                }
+            }
+
+            .text {
+                font-size: 14px;
+                color: var(--color-2);
+            }
+        }
+    }
+}

@@ -1,0 +1,278 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.hero {
+    position: relative;
+    margin-bottom: unset;
+
+    @include bp.mq(laptop-l) {
+        margin-bottom: 50px;
+    }
+
+    @include bp.mq(laptop) {
+        margin-bottom: 46px;
+    }
+
+    @include bp.mq(tablet) {
+        margin-bottom: 32px;
+    }
+
+    .slider {
+        width: 100%;
+        height: 100%;
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 108px));
+
+        @include bp.mq(laptop-l) {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 75px));
+        }
+
+        @include bp.mq(laptop) {
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 51px));
+        }
+
+        .swiper-slide {
+            position: relative;
+            height: auto;
+            background: var(--color-white);
+
+            &.swiper-slide-active {
+                .container {
+                    .block {
+                        .box {
+                            opacity: 1;
+                            transform: translateX(0);
+                        }
+                    }
+                }
+            }
+
+            .container {
+                display: flex;
+                align-items: flex-start;
+                height: 100%;
+
+                .block {
+                    // position: relative;
+                    z-index: 1;
+                    display: grid;
+                    grid-template-columns: 1fr 456px;
+                    gap: 30px;
+                    width: 100%;
+                    padding: 44px 0 79px;
+
+                    @include bp.mq(laptop) {
+                        display: flex;
+                        flex-direction: column;
+                        padding: 37px 0 79px;
+                    }
+                    @include bp.mq(tablet) {
+                        gap: unset;
+                    }
+
+                    .box {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: flex-start;
+                        max-width: 981px;
+                        opacity: 0;
+                        transform: translateX(40px);
+                        transition: all 0.5s;
+
+                        .title {
+                            margin-top: 0;
+                            margin-bottom: 20px;
+                            font-size: 56px;
+                            font-weight: 500;
+                            line-height: normal;
+
+                            @include bp.mq(laptop-l) {
+                                margin-bottom: 25px;
+                                font-size: 52px;
+                            }
+
+                            @include bp.mq(laptop) {
+                                margin-bottom: 22px;
+                                font-size: 42px;
+                            }
+
+                            @include bp.mq(tablet) {
+                                font-size: 30px;
+                            }
+                        }
+
+                        .text {
+                            margin-bottom: 20px;
+                            font-size: 30px;
+                            font-weight: 400;
+                            line-height: normal;
+                            letter-spacing: 0.6px;
+
+                            @include bp.mq(laptop-l) {
+                                font-size: 28px;
+                                letter-spacing: 0.56px;
+                            }
+
+                            @include bp.mq(laptop) {
+                                font-size: 18px;
+                                letter-spacing: 0.36px;
+                            }
+
+                            @include bp.mq(tablet) {
+                                font-size: 16px;
+                                letter-spacing: 0.32px;
+                            }
+                        }
+                    }
+
+                    .column {
+                        @include bp.mq(laptop) {
+                            display: flex;
+                            align-self: flex-end;
+                            max-width: 418px;
+                        }
+                    }
+
+                    .image {
+                        position: absolute;
+                        bottom: 109px;
+                        left: -25px;
+
+                        @include bp.mq(laptop-l) {
+                            bottom: 70px;
+                            max-width: 461px;
+                        }
+                        @include bp.mq(laptop) {
+                            bottom: 163px;
+                            max-width: 315px;
+                        }
+                        @include bp.mq(tablet) {
+                            position: relative;
+                            bottom: 0;
+                        }
+                    }
+
+                    .shape {
+                        position: absolute;
+                        top: -30px;
+                        left: 97px;
+                        z-index: -1;
+                        width: fit-content;
+                        height: auto;
+
+                        @include bp.mq(laptop-l) {
+                            top: 37px;
+                            left: -108px;
+                            max-width: 865px;
+                        }
+                    }
+
+                    @include mix.reset-child-outer-margins;
+                }
+            }
+
+            .bg {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background-image: radial-gradient(
+                    320.67% 104.8% at 9.84% 7.38%,
+                    #fafafa 0.03%,
+                    #d3d2d2 34.44%,
+                    #eee 65.89%,
+                    #fff 84.24%,
+                    #f0f0f0 100%
+                );
+            }
+        }
+    }
+
+    .navigation {
+        position: absolute;
+        bottom: 46px;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: fit-content;
+
+        @include bp.mq(laptop-l) {
+            bottom: 0;
+        }
+
+        .swiper-pagination {
+            position: static;
+            top: unset;
+            right: unset;
+            bottom: unset;
+            left: unset;
+            display: flex;
+            gap: 8px;
+            width: fit-content;
+
+            .swiper-pagination-bullet {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                align-items: flex-start;
+                width: 90px;
+                height: auto;
+                margin: 0 !important;
+                overflow: visible;
+                background: transparent;
+                border-radius: 0;
+                opacity: 1;
+                transition: all 0.3s;
+
+                @include bp.mq(laptop) {
+                    width: 65px;
+                }
+
+                .number {
+                    font-size: 14px;
+                    font-weight: 500;
+                    line-height: 1;
+                    color: var(--color-5);
+                    transition: color 0.3s;
+                }
+
+                &::after {
+                    position: relative;
+                    width: 100%;
+                    height: 5px;
+                    content: "";
+                    background: var(--color-5);
+                    border-radius: 100px;
+                }
+
+                &::before {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    z-index: 1;
+                    width: 0;
+                    height: 5px;
+                    content: "";
+                    background: var(--color-6);
+                    border-radius: 100px;
+                    opacity: 0;
+                    transition: width 0.05s linear;
+                }
+
+                &.swiper-pagination-bullet-active {
+                    .number {
+                        color: var(--color-primary);
+                    }
+
+                    &::before {
+                        width: calc((1 - var(--progress, 0)) * 100%);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+}

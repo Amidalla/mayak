@@ -1,0 +1,11 @@
+@use "core/popup" as *;
+
+.popup-invoice {
+    @include popup;
+
+    .form {
+        .field {
+            margin-bottom: 14px;
+        }
+    }
+}

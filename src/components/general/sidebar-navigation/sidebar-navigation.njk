@@ -1,0 +1,16 @@
+{% from "components/general/button/button.njk" import render as button %}
+
+<nav class="sidebar-navigation">
+    {% set navItems = [
+        { text: "Оплата", url: "./payment.html" },
+        { text: "Доставка и отгрузка", url: "./delivery.html" },
+        { text: "Гарантия качества", url: "./warranty.html" }
+    ] %}
+    <ul class="list">
+        {% for item in navItems %}
+            <li {% if active == item.text %}class="is-active" {% endif %}>
+                <a href="{{ item.url }}">{{ item.text }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

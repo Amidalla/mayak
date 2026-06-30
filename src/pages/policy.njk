@@ -1,0 +1,20 @@
+{% set meta = { title: "Политика конфиденциальности" } %}
+{% set page = { sidebar: true, sidebar_position: "right", sidebar_class: "sidebar-sm", after_content: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Политика конфиденциальности" }
+    ]
+} %}
+{% set title = { text: "Политика конфиденциальности", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block sidebar %}
+    {% include "components/common/policy-navigation/policy-navigation.njk" %}
+{% endblock %}
+{% block content %}
+    {% include "blocks/common/policy/policy.njk" %}
+{% endblock %}
+{% block after_content %}
+    {% include "blocks/common/feedback/feedback.njk" %}
+    {% include "blocks/common/newsletter/newsletter.njk" %}
+{% endblock %}

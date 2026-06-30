@@ -1,0 +1,14 @@
+@use "core/breakpoints" as bp;
+
+.product-sku {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+    margin-bottom: 29px;
+    font-size: 20px;
+    font-weight: 500;
+
+    @include bp.mq(laptop) {
+        margin-bottom: 16px;
+    }
+}

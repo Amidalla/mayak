@@ -1,0 +1,11 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.search {
+    .block {
+        .top {
+            max-width: 751px;
+            margin-bottom: 32px;
+        }
+    }
+}

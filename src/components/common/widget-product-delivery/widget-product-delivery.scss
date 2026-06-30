@@ -1,0 +1,109 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.widget-product-delivery {
+    padding: 15px 10px;
+    background: var(--color-1);
+    border-radius: 10px;
+
+    > .title {
+        margin-bottom: 8px;
+        font-weight: 700;
+    }
+
+    .delivery-images {
+        display: flex;
+        gap: 14px;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 16px;
+
+        picture {
+            width: fit-content;
+
+            img {
+                max-height: 24px;
+            }
+        }
+    }
+
+    .best-price {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        padding: 15px 10px;
+        margin-bottom: 16px;
+        background: var(--color-white);
+        border-radius: 10px;
+
+        .icon {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .box {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            > .title {
+                font-weight: 700;
+            }
+        }
+    }
+
+    .send-request {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        padding: 15px 10px;
+        margin-bottom: 16px;
+        background: var(--color-white);
+        border-radius: 10px;
+
+        .icon {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        .box {
+            display: flex;
+            gap: 4px;
+            align-items: center;
+
+            .copy {
+                padding: 0;
+                overflow: none;
+                cursor: pointer;
+                background: transparent;
+                border: none;
+            }
+        }
+    }
+
+    .minimal-request {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: flex-end;
+        padding: 10px;
+        margin-bottom: 16px;
+        background: var(--color-white);
+        border-radius: 10px;
+
+        .title {
+            font-weight: 700;
+        }
+
+        .price {
+            font-weight: 500;
+            line-height: 1;
+
+            span {
+                font-size: 30px;
+            }
+        }
+    }
+
+    @include mixin.reset-child-outer-margins;
+}

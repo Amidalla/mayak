@@ -1,0 +1,40 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.benefits {
+    padding: 60px 0;
+    margin-bottom: unset;
+    background: var(--color-1);
+
+    .block {
+        .section-title {
+            margin-bottom: 16px;
+        }
+
+        .text {
+            margin-bottom: 32px;
+            font-size: 20px;
+            font-weight: 700;
+            line-height: 150%;
+
+            @include bp.mq(laptop) {
+                font-size: 18px;
+            }
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+
+            @include bp.mq(laptop) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            @include bp.mq(tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+        }
+    }
+}

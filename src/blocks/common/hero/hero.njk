@@ -1,0 +1,55 @@
+<section class="hero section">
+    <div class="slider swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="container">
+                    <div class="block">
+                        <div class="box">
+                            {% set title = {
+                                text: "Татлон: кабельно-проводниковая продукция с доставкой в регионы",
+                                tag: "h1",
+                                class: "title"
+                            } %}
+                            {% include "components/general/title/title.njk" %}
+                            {% set text %}
+                                Комплексные поставки крупным и мелким оптом
+                            {% endset %}
+                            {% include "components/general/text/text.njk" %}
+                        </div>
+                        <div class="column" data-animate="fade-up">
+                            {% include "components/common/widget-callback/widget-callback.njk" %}
+                        </div>
+                        <div class="shape">
+                            <img src="./assets/images/content/hero-bg-shape.png" alt="" />
+                        </div>
+                        <div class="image">
+                            <img src="./assets/images/content/hero-image.png" alt="" />
+                        </div>
+                    </div>
+                </div>
+                <div class="bg"></div>
+            </div>
+            <div class="swiper-slide">
+                <div class="container">
+                    <div class="block">
+                        {% set title = { text: "Слайд номер 2", tag: "h2", class: "title" } %}
+                        {% include "components/general/title/title.njk" %}
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="container">
+                    <div class="block">
+                        {% set title = { text: "Слайд номер 3", tag: "h2", class: "title" } %}
+                        {% include "components/general/title/title.njk" %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navigation">
+        <div class="container">
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</section>

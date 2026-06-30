@@ -1,0 +1,82 @@
+{% macro render(
+        items=[],
+        prevUrl="",
+        nextUrl="",
+        class="",
+        aria={}
+    ) %}
+    {% set paginationClasses = "pagination" %}
+    {% if class %}
+        {% set paginationClasses = paginationClasses + " " + class %}
+    {% endif %}
+
+    <nav
+        class="{{ paginationClasses }}"
+        {% if aria %}
+            {% for key, val in aria %}
+                aria-{{ key | replace("_", "-") }}="{{ val }}"
+            {% endfor %}
+        {% endif %}
+        {% if not aria.label %}aria-label="Пагинация"{% endif %}
+    >
+        <ul>
+            <li class="prev{% if not prevUrl %} disabled{% endif %}">
+                {% if prevUrl %}
+                    <a href="{{ prevUrl }}" aria-label="Предыдущая страница">
+                    {% endif %}
+                    <span>
+                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M26.5 14.5H2M2 14.5L11.5 5M2 14.5L10.5 24.5"
+                                stroke="#000000"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </span>
+                    {% if prevUrl %}
+                    </a>
+                {% endif %}
+            </li>
+
+            {% for item in items %}
+                {% if item.type == "ellipsis" %}
+                    <li>
+                        <span>...</span>
+                    </li>
+                {% elif item.type == "page" %}
+                    <li {% if item.active %}class="active" {% endif %}>
+                        {% if item.active %}
+                            <span aria-current="page">{{ item.number }}</span>
+                        {% else %}
+                            <a href="{{ item.url }}">
+                                <span>{{ item.number }}</span>
+                            </a>
+                        {% endif %}
+                    </li>
+                {% endif %}
+            {% endfor %}
+
+            <li class="next{% if not nextUrl %} disabled{% endif %}">
+                {% if nextUrl %}
+                    <a href="{{ nextUrl }}" aria-label="Следующая страница">
+                    {% endif %}
+                    <span>
+                        <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M2 15L26.5 15M26.5 15L17 24.5M26.5 15L18 5"
+                                stroke="#000000"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+                        </svg>
+                    </span>
+                    {% if nextUrl %}
+                    </a>
+                {% endif %}
+            </li>
+        </ul>
+    </nav>
+{% endmacro %}

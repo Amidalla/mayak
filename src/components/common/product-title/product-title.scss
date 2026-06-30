@@ -1,0 +1,18 @@
+@use "core/breakpoints" as bp;
+
+.product-title {
+    margin-bottom: 16px;
+
+    .title:is(h1) {
+        margin: 0;
+        font-size: 36px;
+        font-weight: 500;
+
+        @include bp.mq(laptop) {
+            font-size: 32px;
+        }
+        @include bp.mq(tablet) {
+            font-size: 28px;
+        }
+    }
+}

@@ -1,0 +1,71 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.payment {
+    position: relative;
+
+    .block {
+        display: grid;
+        grid-template-columns: 6fr 3fr;
+        gap: 16px;
+        padding: 20px;
+        background: var(--color-1);
+        border-radius: 10px;
+
+        @include bp.mq(laptop-l) {
+            grid-template-columns: 5fr 4fr;
+        }
+        @include bp.mq(laptop) {
+            grid-template-columns: 1fr;
+        }
+
+        .column {
+            display: flex;
+            flex-direction: column;
+
+            .box {
+                margin-bottom: 8px;
+
+                h2 {
+                    margin-top: 0;
+                    margin-bottom: 8px;
+                    font-size: 30px;
+
+                    @include bp.mq(laptop-l) {
+                        font-size: 26px;
+                    }
+                    @include bp.mq(laptop) {
+                        font-size: 22px;
+                    }
+                    @include bp.mq(tablet) {
+                        font-size: 20px;
+                    }
+                }
+
+                p {
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+
+                    @include bp.mq(laptop) {
+                        font-size: 15px;
+                    }
+                }
+
+                .minimum {
+                    display: inline-flex;
+                    padding: 15px;
+                    font-size: 16px;
+                    font-weight: 700;
+                    line-height: 150%;
+                    color: var(--color-green);
+                    background: var(--color-green-light, #e8f9d1);
+                    border-radius: 20px;
+
+                    @include bp.mq(laptop) {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+    }
+}

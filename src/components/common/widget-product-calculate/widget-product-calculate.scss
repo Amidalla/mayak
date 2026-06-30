@@ -1,0 +1,77 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.widget-product-calculate {
+    padding: 15px 10px;
+    background: var(--color-white);
+    border: 1px solid var(--color-1);
+    border-radius: 10px;
+    box-shadow: 0 4px 27.9px 0 var(--color-5);
+
+    > .title {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        margin-bottom: 16px;
+
+        .icon {
+            display: flex;
+            flex: 0 0 auto;
+        }
+
+        span {
+            font-weight: 700;
+        }
+    }
+
+    .box {
+        margin-bottom: 16px;
+
+        .title {
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .row {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+
+            .field {
+                width: 100%;
+
+                .label {
+                    display: none;
+                }
+            }
+        }
+
+        @include mixin.reset-child-outer-margins;
+    }
+
+    .results {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .item {
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                color: var(--color-4);
+            }
+
+            .value {
+                span {
+                    font-size: 30px;
+                    font-weight: 500;
+                }
+            }
+        }
+
+        @include mixin.reset-child-outer-margins;
+    }
+
+    @include mixin.reset-child-outer-margins;
+}

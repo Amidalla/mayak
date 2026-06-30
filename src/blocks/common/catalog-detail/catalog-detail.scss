@@ -1,0 +1,110 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.catalog-detail {
+    .block {
+        .top {
+            margin-bottom: 24px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 8fr 4fr;
+            gap: 30px;
+
+            @include bp.mq(laptop-l) {
+                grid-template-columns: 9fr 3fr;
+            }
+
+            @include bp.mq(laptop) {
+                grid-template-columns: 1fr 1fr;
+                gap: 15px;
+            }
+            @include bp.mq(tablet) {
+                grid-template-columns: 1fr;
+            }
+
+            > .box {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 80px 30px;
+                min-width: 0;
+
+                @include bp.mq(laptop) {
+                    display: contents;
+                }
+
+                .column {
+                    min-width: 0;
+
+                    @include bp.mq(laptop) {
+                        // display: contents;
+                    }
+
+                    &:nth-of-type(3) {
+                        grid-column: span 2;
+                        padding: 24px;
+                        background: var(--color-1);
+                        border-radius: 10px;
+
+                        @include bp.mq(laptop) {
+                            display: flex;
+                            flex-direction: column;
+                            order: 1;
+                            margin-top: unset;
+                        }
+
+                        @include bp.mq(tablet) {
+                            grid-column: unset;
+                            padding: unset;
+                            background: unset;
+                            border-radius: unset;
+                        }
+                    }
+
+                    .row {
+                        display: flex;
+                        gap: 20px;
+                        align-items: center;
+                    }
+
+                    @include mixin.reset-child-outer-margins;
+                }
+            }
+
+            aside {
+                @include bp.mq(laptop) {
+                    grid-column: span 2;
+                }
+
+                @include bp.mq(tablet) {
+                    grid-column: unset;
+                }
+
+                .inner {
+                    position: sticky;
+                    top: calc(var(--header-height) + 10px);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+
+                    @include bp.mq(laptop) {
+                        display: grid;
+                        grid-template-columns: 1fr 1fr;
+                        gap: 15px;
+                    }
+                    @include bp.mq(tablet) {
+                        display: flex;
+                        flex-direction: column;
+                    }
+
+                    .product-pay {
+                        @include bp.mq(laptop) {
+                            margin-top: 40px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

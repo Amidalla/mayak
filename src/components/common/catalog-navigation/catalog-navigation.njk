@@ -1,0 +1,46 @@
+{% macro render(
+        items=[],
+        class=""
+    ) %}
+    {% set navClasses = "catalog-navigation" %}
+    {% if class %}
+        {% set navClasses = navClasses + " " + class %}
+    {% endif %}
+
+    <nav class="{{ navClasses }}">
+        {{ renderList(items, 1) }}
+    </nav>
+{% endmacro %}
+
+{% macro renderList(items, level) %}
+    <ul>
+        {% for item in items %}
+            {% set itemText = item.text or item.title %}
+            {% set liClasses = "" %}
+            {% if item.active %}
+                {% set liClasses = liClasses + " active" %}
+            {% endif %}
+            {% if item.class %}
+                {% set liClasses = liClasses + " " + item.class %}
+            {% endif %}
+            <li class="{{ liClasses }}">
+                <a
+                    href="{{ item.href }}"
+                    {% if itemText %}
+                        title="{{ itemText }}"
+                    {% endif %}
+                    {% if item.target %}
+                        target="{{ item.target }}"
+                    {% endif %}
+                    {% if item.active %}
+                        aria-current="page"
+                    {% elif item.ariaCurrent %}
+                        aria-current="{{ item.ariaCurrent }}"
+                    {% endif %}
+                >
+                    {{ itemText }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

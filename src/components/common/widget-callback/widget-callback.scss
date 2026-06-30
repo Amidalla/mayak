@@ -1,0 +1,55 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.widget-callback {
+    padding: 15px 10px;
+    padding: 30px;
+    background: var(--color-white);
+    border-radius: 20px;
+
+    @include bp.mq(laptop) {
+        border-radius: 10px;
+    }
+    @include bp.mq(tablet) {
+        padding: 15px;
+    }
+
+    > .title {
+        margin-top: 0;
+        margin-bottom: 24px;
+        font-weight: 700;
+        line-height: normal;
+        text-align: center;
+
+        @include bp.mq(laptop) {
+            margin-bottom: 8px;
+        }
+    }
+
+    > .subtitle {
+        margin-top: 0;
+        margin-bottom: 14px;
+        font-size: 34px;
+        font-weight: 700;
+        line-height: normal;
+        color: var(--color-primary);
+        text-align: center;
+
+        @include bp.mq(laptop) {
+            font-size: 18px;
+        }
+    }
+
+    > .text {
+        margin-bottom: 24px;
+        text-align: center;
+    }
+
+    .form {
+        .field {
+            margin-bottom: 14px;
+        }
+    }
+
+    @include mixin.reset-child-outer-margins;
+}

@@ -1,0 +1,18 @@
+{% set meta = { title: "Реквизиты" } %}
+{% set page = { after_content: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "О компании", url: "./about.html" },
+        { title: "Реквизиты" }
+    ]
+} %}
+{% set title = { text: "Реквизиты", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    {% include "blocks/common/requisites/requisites.njk" %}
+{% endblock %}
+{% block after_content %}
+    {% include "blocks/common/feedback/feedback.njk" %}
+    {% include "blocks/common/newsletter/newsletter.njk" %}
+{% endblock %}

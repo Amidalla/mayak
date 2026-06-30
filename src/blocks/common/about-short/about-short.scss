@@ -1,0 +1,152 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.about-short {
+    padding: 60px 0;
+    margin-bottom: unset;
+    background: var(--color-1);
+
+    @include bp.mq(laptop) {
+        padding: 46px 0;
+    }
+
+    @include bp.mq(tablet) {
+        padding: 42px 0;
+    }
+
+    .block {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 30px;
+
+        @include bp.mq(laptop-l) {
+            display: flex;
+            flex-direction: column;
+            gap: 44px;
+        }
+
+        .frame {
+            display: flex;
+            flex-direction: column;
+            padding-right: calc(94px - 30px);
+
+            @include bp.mq(laptop-l) {
+                max-width: 925px;
+                padding-right: unset;
+            }
+
+            .section-title {
+                margin-bottom: 23px;
+
+                @include bp.mq(laptop-l) {
+                    margin-bottom: 25px;
+                }
+                @include bp.mq(laptop) {
+                    margin-bottom: 16px;
+                }
+                @include bp.mq(tablet) {
+                    margin-bottom: 11px;
+                }
+            }
+
+            .text {
+                margin-bottom: 24px;
+                font-size: 16px;
+                font-weight: 400;
+                line-height: 150%;
+
+                @include bp.mq(laptop) {
+                    margin-bottom: 18px;
+                    font-size: 15px;
+                }
+
+                @include bp.mq(tablet) {
+                    margin-bottom: 16px;
+                }
+
+                @include mixin.reset-child-outer-margins;
+            }
+
+            @include mixin.reset-child-outer-margins;
+        }
+
+        .items {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+
+            @include bp.mq(laptop-l) {
+                gap: 30px;
+            }
+
+            @include bp.mq(laptop) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            @include bp.mq(tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+
+                @include bp.mq(tablet) {
+                    flex-direction: row;
+                    gap: 16px;
+                    align-items: center;
+                }
+
+                .icon {
+                    display: flex;
+                    flex: 0 0 auto;
+                    width: 80px;
+                    height: 80px;
+                    margin-bottom: 16px;
+
+                    @include bp.mq(laptop) {
+                        width: 70px;
+                        height: 70px;
+                    }
+
+                    picture {
+                        img {
+                            width: 100%;
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                .box {
+                    .name {
+                        margin-top: 0;
+                        margin-bottom: 10px;
+                        font-size: 20px;
+                        font-weight: 700;
+                        line-height: normal;
+
+                        @include bp.mq(laptop) {
+                            font-size: 18px;
+                        }
+                        @include bp.mq(tablet) {
+                            font-size: 16px;
+                        }
+                    }
+
+                    .text {
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 150%;
+
+                        @include bp.mq(laptop) {
+                            font-size: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

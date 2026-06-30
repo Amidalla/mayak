@@ -1,0 +1,38 @@
+<section class="benefits section">
+    <div class="container">
+        <div class="block">
+            {% set title = { text: "Что входит в ассортимент?", tag: "h2", class: "section-title" } %}
+            {% include "components/general/title/title.njk" %}
+            {% set text %}
+                Мы реализуем следующую продукцию для электротехнической промышленности:
+            {% endset %}
+            {% include "components/general/text/text.njk" %}
+            <div class="items" data-animate="fade-up">
+                {% set item = {
+                    name: "монтажные и бортовые кабели (используются при внутри- и межблочном монтаже, а также для соединений в некоторых приборах переменного тока и радиоэлектронике);"
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+                {% set item = {
+                    name: "провода специального назначения (соединяют электронные и электротехнические аппараты, также с помощью таких проводов осуществляется внутри- и межприборный монтаж);"
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+                {% set item = {
+                    name: "радиочастотные кабели (делятся по типу на коаксиальные, симметричные и на варианты со спиральными проводниками, соединяют радиотехнику и радиочастотные установки);"
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+                {% set item = {
+                    name: "термостойкие кабели и провода (электропроводники, которые заключены в специальный материал, предназначенный для эксплуатации в зонах с повышенной температурой);"
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+                {% set item = {
+                    name: "антивибрационные кабели (участвуют в схемах контроля ускорений, которые возникают при вибрации технических устройств, также могут соединять вход измерительного оборудования и пьезо-электрические вибропреобразователи);"
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+                {% set item = {
+                    name: "кабели управления (этот вид имеет токопроводящие медные жилы, который защищены изоляционным слоем — его материал зависит от эксплуатационных характеристик)."
+                } %}
+                {% include "components/common/benefits-item/benefits-item.njk" %}
+            </div>
+        </div>
+    </div>
+</section>

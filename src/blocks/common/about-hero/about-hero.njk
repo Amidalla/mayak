@@ -1,0 +1,42 @@
+<section class="about-hero section">
+    <div class="container">
+        <div class="block">
+            <div class="frame">
+                {% set title = { text: "О компании", tag: "h1", class: "title" } %}
+                {% include "components/general/title/title.njk" %}
+                {% set text %}
+                    <h3>20 лет успешной работы</h3>
+                    <p>
+                        Кабельная компания Татлон - занимается комплексной поставкой кабельно-проводниковой продукции для
+                        электротехнической промышленности России.
+                    </p>
+                    <p>
+                        За 20 лет успешной работы мы стали крупными поставщиками кабельно-проводниковой продукции для
+                        предприятий любого масштаба по всей стране.
+                    </p>
+                    <p>
+                        Основным направлением нашей деятельности является оптовая и мелкооптовая поставка монтажных,
+                        бортовых, а также проводов специального назначения и радиочастотных кабелей.
+                    </p>
+                    <p>
+                        Большая часть предлагаемой продукции имеется в наличии на складе и постоянно пополняется. Также мы
+                        осуществляем размещение заказов на заводах изготовителях с минимально возможными сроками
+                        изготовления и выгодными финансовыми условиями.
+                    </p>
+                {% endset %}
+                {% set textClass = "text" %}
+                {% include "components/general/text/text.njk" %}
+            </div>
+            <div class="image" data-animate="fade-right">
+                <picture class="lazy-loader">
+                    <img
+                        class="lazy"
+                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E"
+                        data-src="./assets/images/content/about-hero.png"
+                        alt=""
+                    />
+                </picture>
+            </div>
+        </div>
+    </div>
+</section>

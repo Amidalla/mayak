@@ -1,0 +1,18 @@
+{% set meta = { title: "Вакансии" } %}
+{% set page = { after_content: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "О компании", url: "./about.html" },
+        { title: "Вакансии" }
+    ]
+} %}
+{% set title = { text: "Вакансии", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    {% include "blocks/common/vacancies/vacancies.njk" %}
+{% endblock %}
+{% block after_content %}
+    {% include "blocks/common/feedback/feedback.njk" %}
+    {% include "blocks/common/newsletter/newsletter.njk" %}
+{% endblock %}

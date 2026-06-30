@@ -1,0 +1,102 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.catalog-category {
+    .block {
+        .top {
+            margin-bottom: 24px;
+        }
+
+        .help {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+            justify-content: flex-end;
+            margin-bottom: 16px;
+            line-height: normal;
+            color: var(--color-2);
+
+            @include bp.mq(laptop) {
+                font-size: 15px;
+            }
+
+            &::before {
+                display: flex;
+                flex: 0 0 auto;
+                width: 29px;
+                height: 29px;
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg width='29' height='29' viewBox='0 0 29 29' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='29' height='29' rx='14.5' fill='%23B42F2D'/%3E%3Cpath d='M15.1729 8.20312L15.0586 17.3877H13.5908L13.4678 8.20312H15.1729ZM13.415 20.1826C13.415 19.9189 13.4941 19.6963 13.6523 19.5146C13.8164 19.333 14.0566 19.2422 14.373 19.2422C14.6836 19.2422 14.9209 19.333 15.085 19.5146C15.2549 19.6963 15.3398 19.9189 15.3398 20.1826C15.3398 20.4346 15.2549 20.6514 15.085 20.833C14.9209 21.0146 14.6836 21.1055 14.373 21.1055C14.0566 21.1055 13.8164 21.0146 13.6523 20.833C13.4941 20.6514 13.415 20.4346 13.415 20.1826Z' fill='white'/%3E%3C/svg%3E%0A");
+            }
+
+            span {
+                span {
+                    color: var(--color-primary);
+                }
+            }
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 9fr 3fr;
+            gap: 30px;
+
+            @include bp.mq(laptop-l) {
+                grid-template-columns: 8fr 4fr;
+            }
+            @include bp.mq(laptop) {
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+            }
+
+            .frame {
+                min-width: 0;
+            }
+
+            aside {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                min-width: 0;
+
+                .widget-product-info {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 15px;
+
+                    .item {
+                        display: flex;
+                        gap: 10px;
+                        align-items: flex-start;
+                        padding: 15px 10px;
+                        background: var(--color-1);
+                        border-radius: 10px;
+
+                        .icon {
+                            display: flex;
+                            flex: 0 0 auto;
+                            width: 46px;
+                            height: 46px;
+                        }
+
+                        .box {
+                            display: flex;
+                            flex-direction: column;
+                            width: 100%;
+
+                            .name {
+                                font-weight: 700;
+                                color: var(--color-6);
+                            }
+
+                            .button {
+                                margin-top: 4px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

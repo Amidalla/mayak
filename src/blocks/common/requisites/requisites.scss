@@ -1,0 +1,61 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.requisites {
+    .block {
+        display: grid;
+        grid-template-columns: 5fr 7fr;
+        gap: 30px;
+
+        @include bp.mq(laptop-l) {
+            grid-template-columns: 1fr 1fr;
+        }
+        @include bp.mq(laptop) {
+            grid-template-columns: 1fr;
+        }
+
+        .frame {
+            .text {
+                margin-bottom: 24px;
+
+                p {
+                    margin-top: 8px;
+                    margin-bottom: 8px;
+                }
+
+                @include mixin.reset-child-outer-margins;
+            }
+
+            .button {
+                padding: 9px 17px;
+
+                .icon {
+                    display: flex;
+                    flex: 0 0 auto;
+                }
+            }
+        }
+
+        .image {
+            display: flex;
+            margin-top: -68px;
+            margin-bottom: -68px;
+
+            @include bp.mq(laptop) {
+                justify-self: flex-end;
+                max-width: 346px;
+                margin-top: -118px;
+                margin-bottom: -28px;
+            }
+            @include bp.mq(tablet) {
+                justify-self: center;
+                margin-top: 0;
+                margin-bottom: -18px;
+            }
+
+            picture {
+                max-width: fit-content;
+            }
+        }
+    }
+}

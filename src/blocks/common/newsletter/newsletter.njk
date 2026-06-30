@@ -1,0 +1,13 @@
+<section class="newsletter section">
+    <div class="container">
+        <div class="block">
+            {% set title = {
+                text: "Вы можете подписаться на рассылку Татлон и оперативно получать новости, складскую справку, коммерческие предложения.",
+                tag: "div",
+                class: "title"
+            } %}
+            {% include "components/general/title/title.njk" %}
+            {% include "components/general/newsletter-form/newsletter-form.njk" %}
+        </div>
+    </div>
+</section>

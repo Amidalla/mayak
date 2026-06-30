@@ -1,0 +1,76 @@
+@use "core/breakpoints" as bp;
+
+.product-gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-width: 0;
+
+    .main {
+        position: relative;
+        min-width: 0;
+
+        .swiper {
+            width: 100%;
+            aspect-ratio: 4/2.5;
+            overflow: hidden;
+            border-radius: 10px;
+
+            .swiper-slide {
+                background: var(--color-white);
+                opacity: 0;
+
+                &.swiper-slide-visible {
+                    opacity: 1;
+                }
+
+                a {
+                    display: flex;
+                    width: 100%;
+                    height: 100%;
+
+                    img,
+                    video,
+                    iframe {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+                }
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                width: 34px;
+                height: 34px;
+                padding: 0;
+                outline: none;
+                background: var(--color-white);
+                border: none;
+                border-radius: 4px;
+
+                svg {
+                    width: 15px;
+                    height: 15px;
+                    fill: transparent;
+                }
+            }
+
+            .swiper-button-next {
+                right: 16px;
+            }
+
+            .swiper-button-prev {
+                left: 16px;
+            }
+
+            .swiper-pagination {
+                .swiper-pagination-bullet {
+                    &.swiper-pagination-bullet-active {
+                        background: var(--color-primary);
+                    }
+                }
+            }
+        }
+    }
+}

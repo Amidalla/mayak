@@ -1,0 +1,11 @@
+.git/
+.vscode/
+.idea/
+*.iml
+.claude/
+package-lock.json
+
+node_modules/
+build/
+dist/
+temp/

@@ -1,0 +1,46 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.warranty {
+    .block {
+        padding: 20px;
+        background: var(--color-1);
+        border-radius: 10px;
+
+        &:not(:last-child) {
+            margin-bottom: 24px;
+        }
+
+        .title {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            margin-top: 0;
+            margin-bottom: 8px;
+
+            .icon {
+                display: flex;
+                flex: 0 0 auto;
+            }
+
+            span {
+                font-size: 26px;
+                font-weight: 700;
+                line-height: 150%;
+
+                @include bp.mq(laptop-l) {
+                    font-size: 20px;
+                }
+                @include bp.mq(tablet) {
+                    font-size: 18px;
+                }
+            }
+        }
+
+        .text {
+            @include bp.mq(laptop) {
+                font-size: 15px;
+            }
+        }
+    }
+}

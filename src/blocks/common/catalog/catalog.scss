@@ -1,0 +1,238 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.catalog {
+    .block {
+        .items {
+            display: grid;
+            grid-template-rows: auto 1fr;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            align-items: flex-start;
+
+            @include bp.mq(laptop-l) {
+                grid-template-columns: repeat(12, 1fr);
+            }
+            @include bp.mq(laptop) {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+            @include bp.mq(tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .item {
+                display: flex;
+                flex-direction: column;
+                padding: 14px 21px 34px;
+                background: var(--color-1);
+                border-radius: 20px;
+
+                @include bp.mq(laptop-l) {
+                    height: 100%;
+                }
+
+                @include bp.mq(laptop) {
+                    padding: 14px 21px 21px;
+                    border-radius: 10px;
+                }
+
+                .image {
+                    display: flex;
+                    width: calc(100% + 21px + 21px);
+                    height: 76px;
+                    margin: calc(-34px + 15px) 0 16px -21px;
+                    overflow: hidden;
+
+                    picture {
+                        max-width: 278px;
+                        transition: transform 0.5s;
+
+                        img {
+                            height: 100%;
+                            object-fit: contain;
+                        }
+                    }
+                }
+
+                .name {
+                    width: fit-content;
+                    margin-top: 0;
+                    margin-bottom: 15px;
+                    font-size: 18px;
+                    font-weight: 500;
+                    line-height: normal;
+                    color: var(--color-2);
+                    text-decoration: none;
+                    transition: color 0.3s;
+
+                    @include bp.mq(laptop) {
+                        font-size: 17px;
+                    }
+
+                    &:hover {
+                        color: var(--color-primary);
+                    }
+                }
+
+                .list {
+                    display: flex;
+                    flex-direction: column;
+
+                    a {
+                        display: flex;
+                        width: fit-content;
+                        font-size: 16px;
+                        font-weight: 400;
+                        line-height: 170%;
+                        color: var(--color-primary);
+                        transition: color 0.3s;
+
+                        &:hover {
+                            color: var(--color-primary-dark);
+                            text-decoration: none;
+                        }
+                    }
+                }
+
+                &:nth-child(1) {
+                    @include bp.mq(laptop-l) {
+                        grid-column: span 6;
+                        order: 1;
+                    }
+                    @include bp.mq(laptop) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(2) {
+                    grid-row: span 2;
+
+                    @include bp.mq(laptop-l) {
+                        grid-row: unset;
+                        grid-column: span 4;
+                        order: 4;
+                    }
+
+                    @include bp.mq(laptop) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(3) {
+                    grid-row: span 2;
+
+                    @include bp.mq(laptop-l) {
+                        grid-row: unset;
+                        grid-column: span 4;
+                        order: 5;
+                    }
+
+                    @include bp.mq(laptop) {
+                        grid-column: unset;
+                        order: 2;
+                    }
+                }
+
+                &:nth-child(4) {
+                    grid-row: span 2;
+
+                    @include bp.mq(laptop-l) {
+                        grid-row: unset;
+                        grid-column: span 4;
+                        order: 3;
+                    }
+
+                    @include bp.mq(laptop) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(5) {
+                    @include bp.mq(laptop-l) {
+                        grid-row: unset;
+                        grid-column: span 6;
+                        order: 2;
+                    }
+
+                    @include bp.mq(laptop) {
+                        grid-column: unset;
+                        order: 5;
+                    }
+                }
+
+                &:hover {
+                    text-decoration: none;
+
+                    .image {
+                        picture {
+                            transform: scale(1.04) translateX(5px);
+                        }
+                    }
+                }
+
+                @include mixin.reset-child-outer-margins;
+            }
+        }
+    }
+}
+
+.catalog.short {
+    .block {
+        .items {
+            grid-template-rows: auto;
+            grid-template-columns: repeat(5, 1fr);
+
+            @include bp.mq(laptop) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include bp.mq(tablet) {
+                grid-template-columns: repeat(1, 1fr);
+            }
+
+            .item {
+                height: 100%;
+
+                &:nth-child(1) {
+                    grid-row: unset;
+
+                    @include bp.mq(laptop-l) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(2) {
+                    grid-row: unset;
+
+                    @include bp.mq(laptop-l) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(3) {
+                    grid-row: unset;
+
+                    @include bp.mq(laptop-l) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(4) {
+                    grid-row: unset;
+
+                    @include bp.mq(laptop-l) {
+                        grid-column: unset;
+                    }
+                }
+
+                &:nth-child(5) {
+                    grid-row: unset;
+
+                    @include bp.mq(laptop-l) {
+                        grid-column: unset;
+                    }
+                }
+            }
+        }
+    }
+}

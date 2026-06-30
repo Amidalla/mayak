@@ -1,0 +1,41 @@
+{% set meta = { title: "Каталог. 2 уровень" } %}
+{% set page = { heading: true, after_content: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Монтажные провода и кабели" }
+    ]
+} %}
+{% set title = { text: "Монтажные провода и кабели", tag: "h1", class: "title" } %}
+{% set catalogNavItems = [
+    { text: "МГТФ", href: "./catalog-subcategory.html" },
+    { text: "МГТФЛ", href: "./catalog-subcategory.html" },
+    { text: "МГТФЭ", href: "./catalog-subcategory.html" },
+    { text: "МГШВ", href: "./catalog-subcategory.html" },
+    { text: "МГШВ-1", href: "./catalog-subcategory.html" },
+    { text: "МП 37-12", href: "./catalog-subcategory.html" },
+    { text: "МПЭ 37-12", href: "./catalog-subcategory.html" },
+    { text: "МК 27-11", href: "./catalog-subcategory.html" },
+    { text: "МКЭ 27-11", href: "./catalog-subcategory.html" },
+    { text: "МСТП", href: "./catalog-subcategory.html" },
+    { text: "МСТПЭ", href: "./catalog-subcategory.html" },
+    { text: "МЛТП", href: "./catalog-subcategory.html" },
+    { text: "МЛТПЭ", href: "./catalog-subcategory.html" },
+    { text: "МПМ", href: "./catalog-subcategory.html" },
+    { text: "МПМЭ", href: "./catalog-subcategory.html" },
+    { text: "МПО", href: "./catalog-subcategory.html" },
+    { text: "МПОЭ", href: "./catalog-subcategory.html" },
+    { text: "МПО 23-11", href: "./catalog-subcategory.html" },
+    { text: "МПОЭ 33-11", href: "./catalog-subcategory.html" },
+    { text: "МПО 33-11", href: "./catalog-subcategory.html" },
+    { text: "МП 16-11", href: "./catalog-subcategory.html" }
+] %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    {% include "blocks/common/catalog-category/catalog-category.njk" %}
+    {% include "blocks/common/seo/seo.njk" %}
+{% endblock %}
+{% block after_content %}
+    {% include "blocks/common/feedback/feedback.njk" %}
+    {% include "blocks/common/newsletter/newsletter.njk" %}
+{% endblock %}

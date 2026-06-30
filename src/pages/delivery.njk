@@ -1,0 +1,21 @@
+{% set meta = { title: "Доставка и отгрузка" } %}
+{% set page = { sidebar: true, sidebar_position: "right", after_content: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Доставка" }
+    ]
+} %}
+{% set title = { text: "Доставка и отгрузка", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block sidebar %}
+    {% set active = "Доставка и отгрузка" %}
+    {% include "components/general/sidebar-navigation/sidebar-navigation.njk" %}
+{% endblock %}
+{% block content %}
+    {% include "blocks/common/delivery/delivery.njk" %}
+{% endblock %}
+{% block after_content %}
+    {% include "blocks/common/feedback/feedback.njk" %}
+    {% include "blocks/common/newsletter/newsletter.njk" %}
+{% endblock %}

@@ -1,0 +1,298 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mixin;
+
+.delivery {
+    position: relative;
+
+    .block {
+        padding: 20px;
+        background: var(--color-1);
+        border-radius: 10px;
+
+        .frame {
+            margin-bottom: 16px;
+
+            > .title {
+                margin-bottom: 8px;
+                font-size: 30px;
+                font-weight: 700;
+
+                @include bp.mq(laptop-l) {
+                    font-size: 26px;
+                }
+                @include bp.mq(laptop) {
+                    font-size: 22px;
+                }
+                @include bp.mq(tablet) {
+                    font-size: 20px;
+                }
+            }
+
+            .grid {
+                display: grid;
+                grid-template-columns: 4.5fr 4.5fr;
+                gap: 20px;
+                align-items: flex-start;
+
+                @include bp.mq(laptop-l) {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .column {
+                    display: flex;
+                    flex-direction: column;
+                    width: 100%;
+
+                    > .title {
+                        margin-bottom: 8px;
+                        font-size: 30px;
+
+                        @include bp.mq(laptop-l) {
+                            font-size: 26px;
+                        }
+                        @include bp.mq(laptop) {
+                            font-size: 22px;
+                        }
+                        @include bp.mq(tablet) {
+                            font-size: 20px;
+                        }
+                    }
+
+                    .scheme {
+                        display: flex;
+                        flex-direction: column;
+                        margin-bottom: 16px;
+
+                        > .name {
+                            display: flex;
+                            gap: 4px;
+                            align-items: center;
+                            margin-bottom: 8px;
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: var(--color-6);
+
+                            @include bp.mq(laptop) {
+                                font-size: 18px;
+                            }
+                            @include bp.mq(tablet) {
+                                font-size: 16px;
+                            }
+
+                            .icon {
+                                display: flex;
+                                flex: 0 0 auto;
+
+                                svg {
+                                    @include bp.mq(laptop) {
+                                        width: 32px;
+                                        height: 32px;
+                                    }
+                                }
+                            }
+                        }
+
+                        > .text {
+                            margin-bottom: 8px;
+                            color: var(--color-6);
+
+                            @include bp.mq(laptop) {
+                                font-size: 15px;
+                            }
+
+                            @include mixin.reset-child-outer-margins;
+                        }
+
+                        .images {
+                            display: grid;
+                            grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                            gap: 14px;
+                            margin-top: 8px;
+
+                            @include bp.mq(tablet) {
+                                grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+                            }
+
+                            .image {
+                                position: relative;
+                                display: block;
+                                overflow: hidden;
+                                cursor: zoom-in;
+                                border-radius: 10px;
+
+                                &::after {
+                                    position: absolute;
+                                    inset: 0;
+                                    content: "";
+                                    background: rgb(0 0 0 / 0%);
+                                    transition: background 0.3s ease;
+                                }
+
+                                img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    transition: transform 0.3s ease;
+                                }
+
+                                .zoom {
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    z-index: 2;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+                                    width: 48px;
+                                    height: 48px;
+                                    color: var(--color-white);
+                                    background: rgb(0 0 0 / 50%);
+                                    border-radius: 50%;
+                                    opacity: 0;
+                                    transform: translate(-50%, -50%) scale(0.8);
+                                    transition: all 0.3s ease;
+                                }
+
+                                &:hover {
+                                    img {
+                                        transform: scale(1.05);
+                                    }
+
+                                    &::after {
+                                        background: rgb(0 0 0 / 30%);
+                                    }
+
+                                    .zoom {
+                                        opacity: 1;
+                                        transform: translate(-50%, -50%) scale(1);
+                                    }
+                                }
+                            }
+                        }
+
+                        .time {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 6px;
+                            margin-bottom: 16px;
+
+                            > .title {
+                                font-weight: 700;
+                            }
+
+                            .item {
+                                width: fit-content;
+                                padding: 8px 10px;
+                                background: var(--color-white);
+                                border-radius: 999px;
+
+                                @include bp.mq(laptop) {
+                                    font-size: 15px;
+                                }
+
+                                &.muted {
+                                    background: var(--color-green-light);
+                                }
+                            }
+                        }
+
+                        @include mixin.reset-child-outer-margins;
+                    }
+
+                    @include mixin.reset-child-outer-margins;
+                }
+            }
+
+            .delivery-benefits {
+                padding: 8px;
+                margin-top: 16px;
+                margin-bottom: 16px;
+                background: var(--color-white);
+                border-radius: 10px;
+
+                ul {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    padding: 0;
+                    margin: 0;
+                    list-style: none;
+
+                    li {
+                        display: flex;
+                        gap: 8px;
+                        align-items: flex-start;
+
+                        @include bp.mq(laptop) {
+                            font-size: 15px;
+                        }
+
+                        &::before {
+                            display: inline-block;
+                            flex: 0 0 auto;
+                            width: 19px;
+                            height: 19px;
+                            margin-top: 2px;
+                            content: "";
+                            background-image: url("data:image/svg+xml,%3Csvg width='19' height='19' viewBox='0 0 19 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='18.1445' height='18.1445' rx='9.07227' fill='%23B42F2D'/%3E%3Crect x='5.44336' y='5.70703' width='7.25781' height='7.25781' rx='3.62891' fill='white'/%3E%3C/svg%3E%0A");
+                            background-repeat: no-repeat;
+                            background-size: contain;
+                        }
+
+                        span {
+                            span {
+                                color: var(--color-green);
+                            }
+                        }
+                    }
+                }
+            }
+
+            .attention {
+                display: flex;
+                gap: 8px;
+                padding: 20px;
+                margin-top: 16px;
+                background: var(--color-white);
+                border: 1px solid var(--color-primary);
+
+                @include bp.mq(tablet) {
+                    align-items: flex-start;
+                }
+
+                .icon {
+                    display: flex;
+                    flex: 0 0 auto;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .text {
+                    font-weight: 500;
+                    line-height: 150%;
+
+                    @include bp.mq(laptop) {
+                        font-size: 15px;
+                    }
+                }
+            }
+
+            .images {
+                display: flex;
+                gap: 16px;
+                align-items: center;
+                justify-content: flex-start;
+                margin-bottom: 16px;
+
+                picture {
+                    width: fit-content;
+
+                    img {
+                        max-height: 60px;
+                    }
+                }
+            }
+        }
+    }
+}
