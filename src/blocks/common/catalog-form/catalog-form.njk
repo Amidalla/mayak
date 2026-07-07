@@ -1,0 +1,16 @@
+<section class="catalog-form section">
+    <picture class="catalog-form__bg">
+        <source media="(max-width: 600px)" srcset="./assets/images/content/form-mobile.jpg">
+        <source media="(max-width: 1279.98px)" srcset="./assets/images/content/form-tablet.jpg">
+        <img class="lazy" data-src="./assets/images/content/catalog-form.jpg" alt="">
+    </picture>
+    <div class="container">
+        {% set title = {
+            text: "Пожалуйста, заполните форму, и мы свяжемся с вами",
+            tag: "h2",
+            class: "catalog-form__title"
+        } %}
+        {% include "components/general/title/title.njk" %}
+        {% include "components/general/form/form.njk" %}
+    </div>
+</section>

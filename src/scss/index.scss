@@ -34,7 +34,7 @@
 @use "../components/general/navigation-top/navigation-top";
 @use "../components/general/navigation-mobile/navigation-mobile";
 @use "../components/general/navigation-bottom/navigation-bottom";
-/*@use "../components/general/breadcrumbs/breadcrumbs";*/
+@use "../components/general/breadcrumbs/breadcrumbs";
 @use "../components/general/search-form/search-form";
 /*@use "../components/general/pagination/pagination";
 @use "../components/general/accordion/accordion";
@@ -113,6 +113,7 @@
 @use "../blocks/common/catalog-hero/catalog-hero";*/
 @use "../blocks/common/benefits/benefits";
 @use "../blocks/common/main-form/main-form";
+@use "../blocks/common/catalog-form/catalog-form";
 /*@use "../blocks/common/payment/payment";
 @use "../blocks/common/delivery/delivery";
 @use "../blocks/common/documents/documents";

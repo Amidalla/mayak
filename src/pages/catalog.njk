@@ -1,4 +1,4 @@
-{% set meta = { title: "Каталог" } %}
+{% set meta = { title: "Каталог продукции" } %}
 {% set page = { heading: true } %}
 {% set breadcrumbs = {
     items: [
@@ -6,10 +6,9 @@
         { title: "Каталог" }
     ]
 } %}
-{% set title = { text: "Каталог", tag: "h1", class: "title" } %}
+{% set title = { text: "Каталог продукции", tag: "h1", class: "title" } %}
 {% extends "layouts/default.njk" %}
 {% block content %}
-    <div class="container">
-
-    </div>
+   {% include "blocks/common/catalog-short/catalog-short.njk" %}
+   {% include "blocks/common/catalog-form/catalog-form.njk" %}
 {% endblock %}

@@ -17,16 +17,16 @@
   }
 
   @include bp.mq(tablet) {
-    padding-top: 60px;
+    padding-top: 40.5px;
     padding-bottom: 80px;
   }
 
   &__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 45px;
 
-    @include bp.mq(tablet) {
+    @include bp.mq(tablet-xl) {
       grid-template-columns: 1fr;
       gap: 16px;
     }

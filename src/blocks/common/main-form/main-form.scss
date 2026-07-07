@@ -80,26 +80,13 @@
   }
 
   &__title {
-    font-family: var(--font-family-headings);
-    font-size: 35px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 120%;
-    color: var(--color-white);
-    margin-bottom: 22px;
-
-    @include bp.mq(laptop-l) {
-      font-size: 25px;
-    }
-
-    @include bp.mq(tablet) {
-      font-size: 20px;
-    }
+    @include mixin.form-title;
   }
 
   input,
   textarea {
     background: rgba(244, 244, 244, 0.17);
+    color: var(--color-2);
 
     &::placeholder {
       color: var(--color-2);

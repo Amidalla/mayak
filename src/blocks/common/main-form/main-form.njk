@@ -1,16 +1,21 @@
 <section class="main-form section">
-        <div class="main-form__grid">
-            <!-- Левый блок (пустой) -->
-            <div class="main-form__left">
-               <picture>
-                   <source media="(max-width: 767px)" srcset="./assets/images/content/form-mobile.jpg">
-                   <source media="(max-width: 1023px)" srcset="./assets/images/content/form-tablet.jpg">
-                   <img class="lazy" data-src="./assets/images/content/form-bg.jpg" alt="">
-               </picture>
-            </div>
-            <div class="main-form__right">
-                <h2 class="main-form__title">Пожалуйста, заполните форму, и мы свяжемся с вами</h2>
-                {% include "components/general/form/form.njk" %}
-            </div>
+    <div class="main-form__grid">
+        <!-- Левый блок (пустой) -->
+        <div class="main-form__left">
+            <picture>
+                <source media="(max-width: 600px)" srcset="./assets/images/content/form-mobile.jpg">
+                <source media="(max-width: 1023px)" srcset="./assets/images/content/form-tablet.jpg">
+                <img class="lazy" data-src="./assets/images/content/form-bg.jpg" alt="">
+            </picture>
         </div>
+        <div class="main-form__right">
+            {% set title = {
+                text: "Пожалуйста, заполните форму, и мы свяжемся с вами",
+                tag: "h2",
+                class: "main-form__title"
+            } %}
+            {% include "components/general/title/title.njk" %}
+            {% include "components/general/form/form.njk" %}
+        </div>
+    </div>
 </section>
