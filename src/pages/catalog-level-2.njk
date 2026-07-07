@@ -1,0 +1,18 @@
+{% set meta = { title: "Каталог (уровень 2)" } %}
+{% set page = { heading: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Каталог", url: "./catalog.html" },
+        { title: "Каталог (уровень 2)" }
+    ]
+} %}
+{% set title = { text: "Каталог (уровень 2)", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    <div class="container">
+        <p>Страница каталога (уровень 2). Здесь будет список товаров или подкатегорий.</p>
+        <p><a href="./product.html">Открыть пример карточки товара</a></p>
+    </div>
+{% endblock %}
+

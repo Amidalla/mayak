@@ -2,8 +2,8 @@
 @use "core/mixins" as mix;
 
 .form {
-    .grid.col-2 {
-        columns: 2;
+    .grid.col-1 {
+        columns: 1;
         column-gap: var(--form-gap);
 
         @include bp.mq(tablet) {
@@ -14,7 +14,7 @@
     .field {
         width: 100%;
         min-width: 0;
-        margin-bottom: 30px;
+        margin-bottom: 8px;
 
         .label {
             display: none;
@@ -26,7 +26,7 @@
         margin-top: 6px;
         font-size: 12px;
         line-height: 1.4;
-        color: var(--color-black);
+        color: var(--color-red);
     }
 
     .field-consent {

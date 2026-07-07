@@ -1,5 +1,4 @@
 {% macro render(
-        size="md",
         rows=4,
         id="",
         name="",
@@ -14,7 +13,8 @@
         data={},
         aria={}
     ) %}
-    {% set textareaClasses = "textarea " + size %}
+    {# Формируем классы: base класс + error + пользовательский класс #}
+    {% set textareaClasses = "textarea" %}
     {% if error %}
         {% set textareaClasses = textareaClasses + " error" %}
     {% endif %}
@@ -42,6 +42,5 @@
                 aria-{{ key | replace("_", "-") }}="{{ val }}"
             {% endfor %}
         {% endif %}
-    >
-                        {% if value %}{{ value }}{% endif %}</textarea>
+    >{% if value %}{{ value }}{% endif %}</textarea>
 {% endmacro %}

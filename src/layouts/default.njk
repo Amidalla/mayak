@@ -9,8 +9,6 @@
     </head>
     <body>
         <div class="site">
-            {% include "components/general/preloader/preloader.njk" %}
-
             {% include "blocks/general/header/header.njk" %}
             <main class="page">
                 {% set page = page | default({}) %}
@@ -28,13 +26,13 @@
                         {% if page.breadcrumbs %}
                             {{ breadcrumbsComponent(items=breadcrumbs.items, size="sm", separator="slash") }}
                         {% endif %}
-                        {% if page.heading %}
+                        {# {% if page.heading %}
                             {% include "components/general/heading/heading.njk" %}
-                        {% endif %}
+                        {% endif %} #}
                     </div>
                 {% endif %}
 
-                <div
+                {# <div
                     class="page-container{% if page.sidebar %} has-sidebar sidebar-{{ page.sidebar_position }}{% if page.sidebar_class %} {{ page.sidebar_class }}{% endif %}{% endif %}"
                 >
                     {% if page.sidebar %}
@@ -47,25 +45,31 @@
                     <div class="page-content">
                         {% block content %}{% endblock %}
                     </div>
-                </div>
+                </div> #}
 
-                {% if page.after_content %}
+                {% block content %}{% endblock %}
+
+                {# {% if page.after_content %}
                     <div class="page-footer">
                         {% block after_content %}{% endblock %}
                     </div>
-                {% endif %}
+                {% endif %} #}
             </main>
+
+            {# РАСКОММЕНТИРОВАН ТОЛЬКО POPUP-CALLBACK #}
             {% include "blocks/general/footer/footer.njk" %}
 
             {% include "components/general/menu/menu.njk" %}
 
             {% include "components/common/popup-callback/popup-callback.njk" %}
-            {% include "components/common/popup-callback-success/popup-callback-success.njk" %}
+
+            {# ВСЁ ОСТАЛЬНОЕ ЗАКОММЕНТИРОВАНО #}
+            {# {% include "components/common/popup-callback-success/popup-callback-success.njk" %}
             {% include "components/common/popup-feedback/popup-feedback.njk" %}
             {% include "components/common/popup-feedback-success/popup-feedback-success.njk" %}
             {% include "components/common/popup-order-success/popup-order-success.njk" %}
             {% include "components/common/popup-price/popup-price.njk" %}
-            {% include "components/common/popup-invoice/popup-invoice.njk" %}
+            {% include "components/common/popup-invoice/popup-invoice.njk" %} #}
 
             {% set consentContent %}
                 Мы используем файлы cookie и сервис веб-аналитики Яндекс Метрика для улучшения работы сайта. Оставаясь на

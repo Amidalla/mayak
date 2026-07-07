@@ -1,8 +1,6 @@
 {% macro render(
         text="",
-        variant="primary",
-        size="md",
-        shape="default",
+        variant="red",
         type="button",
         href="#",
         target="",
@@ -11,18 +9,11 @@
         name="",
         value="",
         disabled=false,
-        underline="",
         class="",
         data={},
         aria={}
     ) %}
     {% set buttonClasses = "button " + variant %}
-    {% if variant != "link" %}
-        {% set buttonClasses = buttonClasses + " " + size + " " + shape %}
-    {% endif %}
-    {% if underline %}
-        {% set buttonClasses = buttonClasses + " underline-" + underline %}
-    {% endif %}
     {% if class %}
         {% set buttonClasses = buttonClasses + " " + class %}
     {% endif %}

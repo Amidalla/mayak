@@ -5,12 +5,12 @@
     position: fixed;
     top: 0;
     right: 0;
-    z-index: 101;
+    z-index: 102;
     width: 100%;
     max-width: 394px;
     height: 100dvh;
     min-height: 100dvh;
-    padding: 15px;
+    padding: 40px 15px 0 15px;
     overflow-y: auto;
     background: var(--color-white);
     box-shadow: 0 4px 28px 0 rgb(0 0 0 / 25%);
@@ -24,31 +24,35 @@
     .menu-header {
         display: none;
 
-        @include bp.mq(laptop) {
+        @include bp.mq(laptop-m) {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 22px;
+            margin-bottom: 40px;
         }
     }
 
     .menu-title {
         font-size: 20px;
         font-weight: 600;
-        color: var(--color-2);
+        color: var(--color-red);
+    }
+
+    .menu-svg {
+        margin-top: 40px;
     }
 
     .menu-close {
         display: none;
 
-        @include bp.mq(laptop) {
+        @include bp.mq(laptop-m) {
             display: flex;
             align-items: center;
             justify-content: center;
             width: 36px;
             height: 36px;
             padding: 0;
-            color: var(--color-2);
+            color: var(--color-black);
             cursor: pointer;
             background: none;
             border: none;
@@ -62,7 +66,7 @@
     }
 
     .menu-navigation {
-        margin-bottom: 40px;
+        margin-bottom: 20px;
     }
 
     .menu-search {
@@ -73,11 +77,16 @@
 .menu-open {
     display: flex;
     flex: 0 0 auto;
-    width: 24px;
-    height: 24px;
+    width: 78px;
+    height: 20px;
     padding: 0;
     margin: 0;
     outline: none;
     background: unset;
     border: none;
+
+    @include bp.mq(mobile-xl) {
+        width: 41px;
+        height: 10.513px;
+    }
 }

@@ -3,273 +3,355 @@
 
 .hero {
     position: relative;
+    background: var(--color-4);
     margin-bottom: unset;
 
-    @include bp.mq(laptop-l) {
-        margin-bottom: 50px;
+    .hero-bg {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        max-width: 1460px;
+        z-index: 0;
+        pointer-events: none;
+
+        @include bp.mq(laptop-l) {
+            max-width: 1030px;
+        }
+
+        @include bp.mq(laptop) {
+            bottom: 20px;
+        }
     }
 
-    @include bp.mq(laptop) {
-        margin-bottom: 46px;
-    }
-
-    @include bp.mq(tablet) {
-        margin-bottom: 32px;
+    // Скрытый заголовок
+    .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        border: 0;
     }
 
     .slider {
         width: 100%;
         height: 100%;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 108px));
-
-        @include bp.mq(laptop-l) {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 75px));
-        }
-
-        @include bp.mq(laptop) {
-            clip-path: polygon(0 0, 100% 0, 100% 100%, 0% calc(100% - 51px));
-        }
 
         .swiper-slide {
             position: relative;
             height: auto;
-            background: var(--color-white);
-
-            &.swiper-slide-active {
-                .container {
-                    .block {
-                        .box {
-                            opacity: 1;
-                            transform: translateX(0);
-                        }
-                    }
-                }
-            }
+            background: transparent;
 
             .container {
                 display: flex;
-                align-items: flex-start;
                 height: 100%;
+                padding-top: 108px;
+                padding-bottom: 233px;
 
-                .block {
-                    // position: relative;
-                    z-index: 1;
-                    display: grid;
-                    grid-template-columns: 1fr 456px;
-                    gap: 30px;
-                    width: 100%;
-                    padding: 44px 0 79px;
+                @include bp.mq(laptop-l) {
+                    padding-bottom: 167px;
+                }
 
-                    @include bp.mq(laptop) {
-                        display: flex;
-                        flex-direction: column;
-                        padding: 37px 0 79px;
-                    }
-                    @include bp.mq(tablet) {
-                        gap: unset;
-                    }
+                @include bp.mq(laptop) {
+                    padding-top: 91px;
+                    padding-bottom: 0;
+                }
 
-                    .box {
-                        display: flex;
-                        flex-direction: column;
-                        align-items: flex-start;
-                        max-width: 981px;
-                        opacity: 0;
-                        transform: translateX(40px);
-                        transition: all 0.5s;
+                @include bp.mq(tablet) {
+                    padding-top: 68px;
+                    padding-bottom: 60px;
+                }
 
-                        .title {
-                            margin-top: 0;
-                            margin-bottom: 20px;
-                            font-size: 56px;
-                            font-weight: 500;
-                            line-height: normal;
-
-                            @include bp.mq(laptop-l) {
-                                margin-bottom: 25px;
-                                font-size: 52px;
-                            }
-
-                            @include bp.mq(laptop) {
-                                margin-bottom: 22px;
-                                font-size: 42px;
-                            }
-
-                            @include bp.mq(tablet) {
-                                font-size: 30px;
-                            }
-                        }
-
-                        .text {
-                            margin-bottom: 20px;
-                            font-size: 30px;
-                            font-weight: 400;
-                            line-height: normal;
-                            letter-spacing: 0.6px;
-
-                            @include bp.mq(laptop-l) {
-                                font-size: 28px;
-                                letter-spacing: 0.56px;
-                            }
-
-                            @include bp.mq(laptop) {
-                                font-size: 18px;
-                                letter-spacing: 0.36px;
-                            }
-
-                            @include bp.mq(tablet) {
-                                font-size: 16px;
-                                letter-spacing: 0.32px;
-                            }
-                        }
-                    }
-
-                    .column {
-                        @include bp.mq(laptop) {
-                            display: flex;
-                            align-self: flex-end;
-                            max-width: 418px;
-                        }
-                    }
-
-                    .image {
-                        position: absolute;
-                        bottom: 109px;
-                        left: -25px;
-
-                        @include bp.mq(laptop-l) {
-                            bottom: 70px;
-                            max-width: 461px;
-                        }
-                        @include bp.mq(laptop) {
-                            bottom: 163px;
-                            max-width: 315px;
-                        }
-                        @include bp.mq(tablet) {
-                            position: relative;
-                            bottom: 0;
-                        }
-                    }
-
-                    .shape {
-                        position: absolute;
-                        top: -30px;
-                        left: 97px;
-                        z-index: -1;
-                        width: fit-content;
-                        height: auto;
-
-                        @include bp.mq(laptop-l) {
-                            top: 37px;
-                            left: -108px;
-                            max-width: 865px;
-                        }
-                    }
-
-                    @include mix.reset-child-outer-margins;
+                @include bp.mq(mobile-xl) {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
                 }
             }
 
-            .bg {
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 0;
+            .block {
+                position: relative;
+                display: flex;
                 width: 100%;
-                height: 100%;
-                pointer-events: none;
-                background-image: radial-gradient(
-                    320.67% 104.8% at 9.84% 7.38%,
-                    #fafafa 0.03%,
-                    #d3d2d2 34.44%,
-                    #eee 65.89%,
-                    #fff 84.24%,
-                    #f0f0f0 100%
-                );
+
+                @include bp.mq(laptop) {
+                    min-height: auto;
+                    flex-direction: column-reverse;
+                    gap: 0;
+                }
+
+                .content {
+                    flex: 0 0 60%;
+                    max-width: 60%;
+                    position: relative;
+                    z-index: 2;
+
+                    @include bp.mq(laptop) {
+                        flex: none;
+                        max-width: 100%;
+                    }
+                }
+
+                .image {
+                    position: absolute;
+                    right: 0;
+                    top: 45%;
+                    transform: translateY(-50%);
+                    z-index: 1;
+                    max-width: 50%;
+                    width: 45%;
+                    pointer-events: none;
+
+                    img {
+                        display: block;
+                        width: 100%;
+                        height: auto;
+                        max-height: 500px;
+                        object-fit: contain;
+                    }
+
+                    @include bp.mq(laptop) {
+                        position: relative;
+                        left: auto;
+                        top: auto;
+                        display: flex;
+                        justify-content: flex-end;
+                        transform: none;
+                        max-width: 100%;
+                        width: 100%;
+                        pointer-events: auto;
+                        order: -1;
+                        padding-bottom: 82px;
+                        margin-top: -35px;
+                        z-index: 3;
+
+                        img {
+                            width: auto;
+                            max-width: 582px;
+                        }
+                    }
+
+                    @include bp.mq(tablet) {
+                        margin-top: 0;
+                        padding-bottom: 40px;
+
+                        img {
+                            max-height: 300px;
+                            max-width: 100%;
+                        }
+                    }
+                }
             }
+        }
+    }
+
+    .hero__title {
+        font-family: var(--font-family-headings);
+        font-size: 60px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 110%;
+        color: var(--color-black);
+        margin-bottom: 21px;
+        margin-top: 0;
+
+        @include bp.mq(laptop-l) {
+            font-size: 45px;
+            margin-bottom: 26px;
+        }
+
+        @include bp.mq(laptop) {
+            font-size: 40px;
+            margin-bottom: 17px;
+        }
+
+        @include bp.mq(tablet) {
+            font-size: 27px;
+            line-height: 120%;
+            margin-bottom: 1px;
+        }
+    }
+
+    .hero__subtitle {
+        font-size: 30px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        color: #312F2F;
+        margin-bottom: 68px;
+
+        @include bp.mq(laptop-l) {
+            font-size: 25px;
+            margin-bottom: 41px;
+        }
+
+        @include bp.mq(laptop) {
+            margin-bottom: 37px;
+        }
+
+        @include bp.mq(tablet) {
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+    }
+
+    .hero__stats {
+        display: flex;
+        gap: 35px;
+
+        @include bp.mq(laptop-l) {
+            gap: 28px;
+        }
+
+        @include bp.mq(laptop) {
+            gap: 19px;
+        }
+
+        @include bp.mq(tablet) {
+            gap: 10px;
+        }
+
+        @include bp.mq(mobile-xl) {
+            justify-content: center;
+        }
+    }
+
+    .hero__stat {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background: var(--color-white);
+        border-radius: 5px;
+        padding: 25px 26px 30px 26px;
+
+        @include bp.mq(laptop-l) {
+            padding: 15px 24px 31px 24px;
+        }
+
+        @include bp.mq(laptop) {
+            padding: 15px 16px 17px 16px;
+        }
+
+        @include bp.mq(tablet) {
+            padding: 11px 8px 4px 8px;
+        }
+    }
+
+    .hero__stat-number {
+        font-family: var(--font-family-headings);
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 100%;
+        color: var(--color-blue);
+
+        @include bp.mq(laptop-l) {
+            font-size: 40px;
+        }
+
+        @include bp.mq(laptop) {
+            font-size: 30px;
+        }
+
+        @include bp.mq(tablet) {
+            font-size: 22px;
+        }
+    }
+
+    .hero__stat-text {
+        font-family: var(--font-family-accent);
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        color: #969696;
+
+        @include bp.mq(laptop-l) {
+            font-size: 16px;
+        }
+
+        @include bp.mq(tablet) {
+            font-size: 14px;
         }
     }
 
     .navigation {
         position: absolute;
-        bottom: 46px;
-        left: 0;
+        bottom: 23px;
+        right: 0; /* Пагинация справа */
+        left: auto; /* Отменяем left: 0 */
         z-index: 1;
         width: 100%;
         height: fit-content;
 
-        @include bp.mq(laptop-l) {
+        @include bp.mq(laptop) {
             bottom: 0;
+            right: auto;
+            left: 0;
         }
 
         .swiper-pagination {
             position: static;
-            top: unset;
-            right: unset;
-            bottom: unset;
-            left: unset;
             display: flex;
-            gap: 8px;
-            width: fit-content;
+            justify-content: flex-end; /* Выравнивание вправо */
+            gap: 16px;
+            width: 100%;
+            padding-right: 9%; /* Отступ от правого края */
+
+            @include bp.mq(laptop-l) {
+                padding-right: 0;
+            }
+
+            @include bp.mq(laptop) {
+                justify-content: center;
+                padding-right: 0;
+            }
 
             .swiper-pagination-bullet {
-                position: relative;
-                display: flex;
-                flex-direction: column;
-                gap: 8px;
-                align-items: flex-start;
-                width: 90px;
-                height: auto;
+                width: 235px;
+                height: 5px;
                 margin: 0 !important;
-                overflow: visible;
-                background: transparent;
+                background: var(--color-white);
                 border-radius: 0;
                 opacity: 1;
                 transition: all 0.3s;
 
+                @include bp.mq(laptop-l) {
+                    width: 196.62px;
+                    height: 4.183px;
+                }
+
                 @include bp.mq(laptop) {
-                    width: 65px;
+                    width: 196.62px;
+                    height: 4.183px;
                 }
 
-                .number {
-                    font-size: 14px;
-                    font-weight: 500;
-                    line-height: 1;
-                    color: var(--color-5);
-                    transition: color 0.3s;
-                }
-
-                &::after {
-                    position: relative;
-                    width: 100%;
-                    height: 5px;
-                    content: "";
-                    background: var(--color-5);
-                    border-radius: 100px;
-                }
-
-                &::before {
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    z-index: 1;
-                    width: 0;
-                    height: 5px;
-                    content: "";
-                    background: var(--color-6);
-                    border-radius: 100px;
-                    opacity: 0;
-                    transition: width 0.05s linear;
+                @include bp.mq(tablet) {
+                    width: 93.749px;
+                    height: 3px;
                 }
 
                 &.swiper-pagination-bullet-active {
-                    .number {
-                        color: var(--color-primary);
+                    width: 235px;
+                    height: 5px;
+                    background: #012F6B;
+                    border-radius: 0;
+                    opacity: 1;
+
+                    @include bp.mq(laptop-l) {
+                        width: 196.62px;
+                        height: 4.183px;
                     }
 
-                    &::before {
-                        width: calc((1 - var(--progress, 0)) * 100%);
-                        opacity: 1;
+                    @include bp.mq(laptop) {
+                        width: 196.62px;
+                        height: 4.183px;
+                    }
+
+                    @include bp.mq(tablet) {
+                        width: 93.749px;
+                        height: 3px;
                     }
                 }
             }

@@ -1,5 +1,4 @@
 {% macro render(
-        title="",
         items=[],
         class="",
         ariaLabel="Навигация"
@@ -10,9 +9,6 @@
     {% endif %}
 
     <nav class="{{ navClasses }}" aria-label="{{ ariaLabel }}">
-        {% if title %}
-            <div class="title">{{ title }}</div>
-        {% endif %}
         <ul>
             {% for item in items %}
                 <li {% if item.class %}class="{{ item.class }}" {% endif %}>
@@ -30,6 +26,25 @@
                     >
                         {{ item.title }}
                     </a>
+                    {% if item.children %}
+                        <ul class="navigation-bottom__submenu">
+                            {% for child in item.children %}
+                                <li>
+                                    <a
+                                        href="{{ child.href }}"
+                                        {% if child.title %}
+                                            title="{{ child.title }}"
+                                        {% endif %}
+                                        {% if child.target %}
+                                            target="{{ child.target }}"
+                                        {% endif %}
+                                    >
+                                        {{ child.title }}
+                                    </a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
                 </li>
             {% endfor %}
         </ul>

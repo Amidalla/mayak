@@ -2,6 +2,7 @@
 @use "core/mixins" as mix;
 
 .navigation-mobile {
+
     ul {
         display: flex;
         flex-direction: column;
@@ -14,21 +15,23 @@
             position: relative;
             display: flex;
             flex-direction: column;
-            padding: 8px 0;
-            border-bottom: 1px solid var(--color-5);
 
             > .item {
                 display: flex;
                 gap: 0.5rem;
                 align-items: center;
                 justify-content: space-between;
+                border-radius: 5px;
+                border-bottom: 1px solid #7E7E7E;
+                padding: 15px;
 
                 > a {
                     display: flex;
-                    font-size: 16px;
+                    font-size: 22px;
+                    font-style: normal;
                     font-weight: 500;
-                    line-height: 150%;
-                    color: var(--color-2);
+                    line-height: 120%;
+                    color: var(--color-black);
                     transition: all 0.3s;
 
                     &:hover {
@@ -51,15 +54,35 @@
                     border: none;
                     transition: transform 0.3s;
 
+                    svg {
+                        stroke: #101828;
+                        transition: all 0.3s ease;
+                    }
+
                     &:hover {
                         color: var(--color-primary);
                     }
+
                 }
             }
 
             &.is-open {
+
+                & > .item {
+                    border-radius: 0;
+                    border-bottom: 1px solid var(--color-red);
+
+                   a {
+                       color: var(--color-red);
+                   }
+                }
+
                 > .item .toggle {
-                    transform: rotate(180deg);
+                    transform: rotate(-90deg);
+
+                    svg {
+                        stroke: var(--color-red);
+                    }
                 }
             }
         }
@@ -72,17 +95,31 @@
         transition: max-height 0.3s ease-out;
 
         ul {
-            padding-left: 15px;
-            margin-top: 8px;
+            margin-top: 5px;
 
             > li {
                 border-bottom: unset;
 
+                &:not(:last-child) {
+                    margin-bottom: 5px;
+                }
+
                 > .item {
+                    border: none;
+                    padding: 0;
+
                     a {
-                        font-size: 16px;
-                        font-weight: 400;
-                        line-height: 130%;
+                        font-size: 18px;
+                        font-style: normal;
+                        font-weight: 500;
+                        line-height: 120%;
+                        color: var(--color-black-light);
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        width: 100%;
+                        padding: 8px 15px;
+                        background: var(--color-1);
                     }
                 }
             }

@@ -2,34 +2,25 @@
 @use "core/mixins" as mix;
 
 .textarea {
-    // Component variables
-    --textarea-font-size-sm: 14px;
-    --textarea-font-size-md: 16px;
-    --textarea-font-size-lg: 18px;
-    --textarea-padding-sm: 8px;
-    --textarea-padding-md: 10px;
-    --textarea-padding-lg: 12px;
-
-    @include bp.mq(laptop) {
-        --textarea-font-size-md: 15px;
-    }
 
     // Base styles
     display: block;
     width: 100%;
-    font-family: var(--font-family-primary);
-    font-size: var(--textarea-font-size-md);
-    line-height: 1.5;
-    color: var(--color-black);
+    font-family: var(--font-family-unna);
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--color-5);
     resize: vertical;
     outline: none;
-    background-color: var(--color-white);
-    border: 1px solid var(--color-5);
-    border-radius: 7px;
+    background: var(--color-4);
+    border: none;
+    border-radius: 3px;
     transition: all 0.2s ease-in-out;
+    padding: 11px;
 
     &::placeholder {
-        color: var(--color-4);
+        color: var(--color-5);
         opacity: 1;
     }
 
@@ -62,24 +53,5 @@
         &:hover {
             border-color: var(--color-red) !important;
         }
-    }
-
-    // --------------------------------------
-    // Sizes
-    // --------------------------------------
-
-    &.sm {
-        padding: var(--textarea-padding-sm);
-        font-size: var(--textarea-font-size-sm);
-    }
-
-    &.md {
-        padding: var(--textarea-padding-md);
-        font-size: var(--textarea-font-size-md);
-    }
-
-    &.lg {
-        padding: var(--textarea-padding-lg);
-        font-size: var(--textarea-font-size-lg);
     }
 }

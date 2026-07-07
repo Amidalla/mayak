@@ -3,6 +3,49 @@
 
 .contacts-header {
     display: flex;
+    gap: 83px;
+    align-items: flex-start;
+
+    .item {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        font-size: 15px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 120%;
+        color: var(--color-1);
+
+        &.email {
+            a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 19px;
+                color: var(--color-1);
+            }
+        }
+
+        &.phones {
+            a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 15px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 120%;
+                color: var(--color-1);
+            }
+        }
+    }
+}
+
+/*.contacts-header {
+    display: flex;
     gap: 24px;
     align-items: flex-start;
 
@@ -61,7 +104,7 @@
 
             a {
                 display: flex;
-                flex-direction: column;
+                gap: 10px;
                 color: var(--color-black);
                 transition: all 0.3s;
 
@@ -74,7 +117,7 @@
                     font-size: 14px;
                     font-weight: 400;
                     line-height: normal;
-                    color: var(--color-4);
+                    color: var(--color-1);
                 }
             }
         }
@@ -103,4 +146,4 @@
             }
         }
     }
-}
+}*/

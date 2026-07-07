@@ -1,5 +1,4 @@
 import lozad from "lozad";
-import { preloader } from "../components/general/preloader/preloader.js";
 import { menu } from "../components/general/menu/menu.js";
 import { form } from "../components/general/form/form.js";
 import { input } from "../components/general/input/input.js";
@@ -31,7 +30,7 @@ import { showToast } from "../components/general/toast/toast.js";
 import { showPopup } from "./utils/popup.js";
 import { productsTable } from "../components/common/products-table/products-table.js";
 import { showAddedToCart } from "./utils/show-added-to-cart.js";
-import { animate } from "./utils/animate.js";
+import { searchForm } from "../components/general/search-form/search-form.js";
 
 const components = [
     productsTable,
@@ -60,22 +59,14 @@ const components = [
     delivery,
     productDelivery,
     seo,
-    widgetProductDelivery
+    widgetProductDelivery,
+    feedback,
+    searchForm
 ];
-
-// Анимации запускаются отдельно после прелоадера
-const animateComponents = [animate, feedback];
 
 function init(context = document) {
     components.forEach((fn) => fn(context));
 }
-
-function initAnimations(context = document) {
-    animateComponents.forEach((fn) => fn(context));
-}
-
-// Preloader (вызываем сразу)
-preloader();
 
 document.addEventListener("DOMContentLoaded", () => {
     // global services
@@ -87,15 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // UI components
     init();
-
-    // Если прелоадера нет - запускаем анимации сразу
-    if (!document.querySelector("[data-preloader]")) {
-        initAnimations();
-    }
 });
-
-// Анимации запускаются после завершения прелоадера
-document.addEventListener("preloaderComplete", () => initAnimations(), { once: true });
 
 window.showToast = showToast;
 window.showPopup = showPopup;
@@ -103,5 +86,4 @@ window.showAddedToCart = showAddedToCart;
 
 window.reinit = (context = document) => {
     init(context);
-    initAnimations(context);
 };

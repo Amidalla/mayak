@@ -5,72 +5,211 @@ footer.footer {
     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    padding: 43px 0 53px;
-    background: var(--color-6);
+    gap: 220px;
+    padding: 100px 0 102px;
+    background: var(--color-3);
 
     @include bp.mq(laptop) {
-        gap: 24px;
+        gap: 92px;
         padding: 43px 0 28px;
     }
     @include bp.mq(tablet) {
         padding: 43px 0 19px;
+        gap: 48px;
     }
 
     .footer-main {
         .block {
             display: grid;
-            grid-template-columns: 5fr 3fr 4fr;
+            grid-template-columns: 6fr 4fr 3fr 3fr;
             gap: 30px;
 
             @include bp.mq(laptop) {
-                grid-template-columns: 1fr 1fr;
-                gap: 40px 20px;
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 110px;
             }
+
             @include bp.mq(tablet) {
-                grid-template-columns: 1fr;
+                display: flex;
+                flex-direction: column;
                 gap: 20px;
             }
 
             .column {
                 display: flex;
                 flex-direction: column;
-                grid-row: span 2;
-                gap: 40px;
+                gap: 20px;
 
                 @include bp.mq(laptop) {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    grid-row: unset;
-                    grid-column: span 2;
-                    gap: 20px;
-                }
-
-                @include bp.mq(tablet) {
-                    grid-template-columns: 1fr;
-                    grid-column: unset;
-                    gap: unset;
+                    grid-column: 1 / 4; // Вся ширина (3 колонки)
+                    grid-row: 1 / 2;
                 }
 
                 .wrap {
-                    @include bp.mq(laptop) {
-                        display: contents;
+                    &:last-child {
+                        display: none;
+
+                        @include bp.mq(tablet) {
+                            display: block;
+                        }
+
+                        .footer-btn {
+                            display: none;
+
+                            @include bp.mq(tablet) {
+                                display: inline-block;
+                                margin-top: 40px;
+                            }
+                        }
                     }
                 }
             }
 
-            > *:nth-child(4) {
-                grid-column: span 2;
-                margin-top: calc(54px - 30px);
-
-                @include bp.mq(laptop) {
-                    margin-top: unset;
+            .wrap {
+                &:nth-child(2) {
+                    @include bp.mq(laptop) {
+                        grid-column: 1 / 2;
+                        grid-row: 2 / 3;
+                    }
                 }
 
-                @include bp.mq(tablet) {
-                    grid-column: unset;
+                &:nth-child(3) {
+                    @include bp.mq(laptop) {
+                        grid-column: 2 / 3;
+                        grid-row: 2 / 3;
+                    }
+                }
+
+                &:nth-child(4) {
+                    @include bp.mq(laptop) {
+                        grid-column: 3 / 4;
+                        grid-row: 2 / 3;
+                        margin-top: -66px;
+                    }
+
+                    @include bp.mq(tablet) {
+                        margin-top: 0;
+
+                        .footer-btn {
+                            display: none;
+                        }
+                    }
                 }
             }
+        }
+
+        .footer-btn {
+            display: none;
+
+            @include bp.mq(laptop) {
+                display: inline-block;
+                position: relative;
+                border: none;
+                background: none;
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 600;
+                line-height: 120%;
+                color: var(--color-red);
+                padding-bottom: 6px;
+                padding-left: 0;
+                padding-right: 0;
+                cursor: pointer;
+                transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                opacity 0.3s ease;
+                margin-bottom: 37px;
+
+                &::after {
+                    position: absolute;
+                    bottom: -4px;
+                    left: 50%;
+                    width: 100%;
+                    height: 3px;
+                    content: "";
+                    background-color: var(--color-red);
+                    border-radius: 2px;
+                    transform: translateX(-50%) scaleX(1);
+                    transform-origin: center center;
+                    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
+                    all 0.3s ease;
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    .footer-bottom {
+        .block {
+            display: grid;
+            grid-template-columns: 6fr 4fr 3fr 3fr;
+            gap: 30px;
+            align-items: end;
+
+            @include bp.mq(laptop) {
+                grid-template-columns: 1fr 1fr;
+                gap: 50px;
+            }
+
+            @include bp.mq(tablet) {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: start;
+            }
+
+            .wrap {
+                &:nth-child(1) {
+                    grid-column: 1;
+
+                    @include bp.mq(laptop) {
+                        grid-row: 1 / 2;
+                    }
+
+                    @include bp.mq(tablet) {
+                        display: none;
+                    }
+                }
+
+                &:nth-child(2) {
+                    grid-column: 2;
+
+                    @include bp.mq(laptop) {
+                        grid-row: 1 / 2;
+                    }
+                }
+                &:nth-child(3) {
+                    grid-column: 4;
+
+                    @include bp.mq(laptop) {
+                        grid-column: 1 / 3;
+                        grid-row: 2 / 3;
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-bg {
+        position: absolute;
+        bottom: 10px;
+        right: 30px;
+        z-index: 0;
+        max-width: 1653px;
+        pointer-events: none;
+
+        @include bp.mq(laptop-l) {
+            max-width: 1240px;
+        }
+
+        @include bp.mq(laptop) {
+            max-width: 100%;
+            right: 9px;
+            left: 9px;
+            bottom: 75px;
+        }
+
+        @include bp.mq(tablet) {
+            display: none;
         }
     }
 }

@@ -1,0 +1,22 @@
+{% set meta = { title: "Карточка товара" } %}
+{% set page = { heading: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Каталог", url: "./catalog.html" },
+        { title: "Каталог (уровень 2)", url: "./catalog-level-2.html" },
+        { title: "Карточка товара" }
+    ]
+} %}
+{% set title = { text: "Карточка товара", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    <div class="container">
+        <p>Пример страницы товара. Swiper/Fancybox уже подключены в проекте и могут использоваться в галерее.</p>
+
+        <div style="max-width: 820px;">
+            {% include "components/common/product-gallery/product-gallery.njk" %}
+        </div>
+    </div>
+{% endblock %}
+

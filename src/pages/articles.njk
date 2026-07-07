@@ -1,0 +1,21 @@
+{% set meta = { title: "Статьи" } %}
+{% set page = { heading: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Статьи" }
+    ]
+} %}
+{% set title = { text: "Статьи", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    <div class="container">
+        <p>Список статей (заглушка):</p>
+        <ul>
+            <li><a href="./article.html">Статья 1 (детальная)</a></li>
+            <li><a href="./article.html">Статья 2 (детальная)</a></li>
+            <li><a href="./article.html">Статья 3 (детальная)</a></li>
+        </ul>
+    </div>
+{% endblock %}
+

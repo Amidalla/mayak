@@ -1,0 +1,24 @@
+{% set meta = { title: "Вопрос-ответ" } %}
+{% set page = { heading: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Вопрос-ответ" }
+    ]
+} %}
+{% set title = { text: "Вопрос-ответ", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    <div class="container">
+        <p>Accordion уже подключен в проекте. Пример:</p>
+        {% from "components/general/accordion/accordion.njk" import render as accordion %}
+        {{ accordion(
+            items=[
+                { name: "Вопрос 1", content: "<p>Ответ 1 (заглушка).</p>" },
+                { name: "Вопрос 2", content: "<p>Ответ 2 (заглушка).</p>" },
+                { name: "Вопрос 3", content: "<p>Ответ 3 (заглушка).</p>" }
+            ]
+        ) }}
+    </div>
+{% endblock %}
+

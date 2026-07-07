@@ -3,65 +3,62 @@
 
 :root {
     // --------------------------------------
-    // -- Base Сolors
+    // -- Base Colors
     // --------------------------------------
-    --color-white: #fff;
-    --color-black: #000;
-    --color-gray: #8f8f8f;
-    --color-gray-dark: #525252;
-    --color-gray-light: #d9dadb;
-    --color-red: #f04f36;
-    --color-green: #81a451;
-    --color-green-light: #e8f9d1;
-    --color-yellow: #d8b74b;
+    --color-white: #FFF;
+    --color-black: #101828;
+    --color-gray: #746C6C;
+    --color-text-gray: #808080;
+    --color-border-gray: #E9E9E9;
+    --color-red: #F33607;
+    --color-blue: #0040A1;
 
     // --------------------------------------
-    // -- Brand Сolors
+    // -- Button Colors
     // --------------------------------------
-    --color-primary: #b42f2d;
-    --color-primary-dark: #8d1a1c;
+    --color-red-dark: #C92A05;
+    --color-red-darker: #A82204;
+    --color-black-light: #2D3748;
+    --color-black-lighter: #4A5568;
 
     // --------------------------------------
     // -- Others Сolors
     // --------------------------------------
-    --color-1: #f3f3f3;
-    --color-2: #303038;
-    --color-3: #686161;
-    --color-4: #aeaeae;
-    --color-5: #dedede;
-    --color-6: #322f2f;
-    --color-7: #dc5655;
+    --color-1: #7E7E7E;
+    --color-2: #ECECEC;
+    --color-3: #EDEDED;
+    --color-4: #E7E7E7;
+    --color-5: #8F8F8F;
 
     // --------------------------------------
     // -- Fonts
     // --------------------------------------
-    --font-family-primary: "Roboto", sans-serif;
+    --font-family-primary: 'WixMadeforText', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    --font-family-headings: 'Commissioner', Georgia, 'Times New Roman', serif;
+    --font-family-accent: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-family-unna: 'Unna', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+    // --------------------------------------
+    // -- Font Weights
+    // --------------------------------------
+    --font-weight-regular: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
 
     // --------------------------------------
     // -- Sizes
     // --------------------------------------
-    --container-width: 1600px;
+    --container-width: 1801px;
     --container-padding: 60px;
-    --header-top-height: 58px;
-    --header-main-height: 98px;
-    --header-height: calc(var(--header-top-height) + var(--header-main-height));
-    --heading-margin: 1rem 0;
-    --heading-line-height: 1.1;
-    --section-mb: 60px;
+    --header-height: 99px;
 
-    @include bp.mq(laptop-l) {
-        --header-main-height: 70px;
-    }
-
-    @include bp.mq(laptop) {
+    @include bp.mq(tablet-xl) {
+        --header-height: 68px;
         --container-padding: 40px;
-        --header-main-height: 58px;
-        --section-mb: 40px;
     }
 
-    @include bp.mq(tablet) {
+    @include bp.mq(mobile-xl) {
         --container-padding: 15px;
-        --header-top-height: 34px;
-        --header-main-height: 104px;
+        --header-height: 50px;
     }
 }

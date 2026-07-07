@@ -1,38 +1,73 @@
 <section class="benefits section">
     <div class="container">
-        <div class="block">
-            {% set title = { text: "Что входит в ассортимент?", tag: "h2", class: "section-title" } %}
-            {% include "components/general/title/title.njk" %}
-            {% set text %}
-                Мы реализуем следующую продукцию для электротехнической промышленности:
-            {% endset %}
-            {% include "components/general/text/text.njk" %}
-            <div class="items" data-animate="fade-up">
-                {% set item = {
-                    name: "монтажные и бортовые кабели (используются при внутри- и межблочном монтаже, а также для соединений в некоторых приборах переменного тока и радиоэлектронике);"
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
-                {% set item = {
-                    name: "провода специального назначения (соединяют электронные и электротехнические аппараты, также с помощью таких проводов осуществляется внутри- и межприборный монтаж);"
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
-                {% set item = {
-                    name: "радиочастотные кабели (делятся по типу на коаксиальные, симметричные и на варианты со спиральными проводниками, соединяют радиотехнику и радиочастотные установки);"
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
-                {% set item = {
-                    name: "термостойкие кабели и провода (электропроводники, которые заключены в специальный материал, предназначенный для эксплуатации в зонах с повышенной температурой);"
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
-                {% set item = {
-                    name: "антивибрационные кабели (участвуют в схемах контроля ускорений, которые возникают при вибрации технических устройств, также могут соединять вход измерительного оборудования и пьезо-электрические вибропреобразователи);"
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
-                {% set item = {
-                    name: "кабели управления (этот вид имеет токопроводящие медные жилы, который защищены изоляционным слоем — его материал зависит от эксплуатационных характеристик)."
-                } %}
-                {% include "components/common/benefits-item/benefits-item.njk" %}
+        <div class="benefits__grid">
+            <!-- Левая колонка -->
+            <div class="benefits__left">
+                <h2 class="benefits__title">Почему выбирают нас?</h2>
+                <p class="benefits__text">
+                    Оптимальные решения для бизнеса:<br>
+                    <span class="benefits__highlight">электродвигатели дешевле, чем на заводе, с официальной гарантией.</span>
+                </p>
+            </div>
+
+            <!-- Правая колонка -->
+            <div class="benefits__right">
+                <!-- Блоки преимуществ -->
+                <div class="benefits__items">
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img class="lazy" src="./assets/images/content/benefits-1.png" alt="Иконка">
+                        </div>
+                        <h3 class="benefits__item-title">Продукция российских
+                                                         и белорусских заводов</h3>
+                        <p class="benefits__item-text">Гарантируем надежность, доступные цены и индивидуальный подход
+                                                       к каждому клиенту</p>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img class="lazy" src="./assets/images/content/benefits-2.png" alt="Иконка">
+                        </div>
+                        <h3 class="benefits__item-title">Гарантия 3 года</h3>
+                        <p class="benefits__item-text">Даём официальную гарантию 3 года на всю продукцию
+                                                       — покупайте с уверенностью</p>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img class="lazy" src="./assets/images/content/benefits-3.png" alt="Иконка">
+                        </div>
+                        <h3 class="benefits__item-title">У нас выгоднее,<br>
+                                                         чем на заводе</h3>
+                        <p class="benefits__item-text">Прямые поставки позволяют редлагать лучшие условия, дешевле, чем при покупке напрямую у производителя</p>
+                    </div>
+                    <div class="benefits__item">
+                        <div class="benefits__item-icon">
+                            <img class="lazy" src="./assets/images/content/benefits-4.png" alt="Иконка">
+                        </div>
+                        <h3 class="benefits__item-title">Товар со склада</h3>
+                        <p class="benefits__item-text">Получайте заказ быстро,
+                                                       без долгого ожидания.
+                                                       Доставка в кратчайшие сроки, так как нужные модели уже ждут вас
+                                                       на нашем складе</p>
+                    </div>
+                </div>
+
+
             </div>
         </div>
+        <!-- Статистика -->
+                        <div class="benefits__stats">
+                            <div class="benefits__stat">
+                                <span class="benefits__stat-number">>10 лет</span>
+                                <span class="benefits__stat-text">на российском рынке</span>
+                            </div>
+                            <div class="benefits__stat">
+                                <span class="benefits__stat-number">>100</span>
+                                <span class="benefits__stat-text">моделей на складе</span>
+                            </div>
+                            <div class="benefits__stat">
+                                <span class="benefits__stat-number">2 дня</span>
+                                <span class="benefits__stat-text">доставка до двери</span>
+                            </div>
+                        </div>
     </div>
 </section>

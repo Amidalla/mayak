@@ -1,0 +1,21 @@
+{% set meta = { title: "Партнеры" } %}
+{% set page = { heading: true } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Партнеры" }
+    ]
+} %}
+{% set title = { text: "Партнеры", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    <div class="container">
+        <p>Список партнеров (логотипы/ссылки) — заглушка.</p>
+        <ul>
+            <li>Партнер 1</li>
+            <li>Партнер 2</li>
+            <li>Партнер 3</li>
+        </ul>
+    </div>
+{% endblock %}
+
