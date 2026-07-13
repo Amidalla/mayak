@@ -5,6 +5,10 @@
     margin-bottom: var(--section-mb);
     overflow-x: clip;
 
+    &.bg {
+        background: var(--color-4);
+    }
+
     &-title {
         margin-top: unset;
         margin-bottom: 40px;

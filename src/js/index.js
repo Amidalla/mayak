@@ -31,6 +31,10 @@ import { showPopup } from "./utils/popup.js";
 import { productsTable } from "../components/common/products-table/products-table.js";
 import { showAddedToCart } from "./utils/show-added-to-cart.js";
 import { searchForm } from "../components/general/search-form/search-form.js";
+import { searchResult } from "../blocks/common/search-result/search-result.js";
+import { initCustomScroll } from "./utils/custom-scroll.js";
+import { catalogContent } from "../blocks/common/catalog-content/catalog-content.js";
+import { filterToggle } from "../components/general/filter/filter.js";
 
 const components = [
     productsTable,
@@ -61,11 +65,15 @@ const components = [
     seo,
     widgetProductDelivery,
     feedback,
-    searchForm
+    searchForm,
+    searchResult,
+    catalogContent,
+    filterToggle
 ];
 
 function init(context = document) {
     components.forEach((fn) => fn(context));
+    initCustomScroll(context); // Инициализируем кастомный скролл
 }
 
 document.addEventListener("DOMContentLoaded", () => {

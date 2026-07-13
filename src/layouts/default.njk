@@ -18,42 +18,53 @@
                     after_content: page.after_content | default(false),
                     sidebar: page.sidebar | default(false),
                     sidebar_position: page.sidebar_position | default("left"),
-                    sidebar_class: page.sidebar_class | default("")
+                    sidebar_class: page.sidebar_class | default(""),
+                    catalog_nav: page.catalog_nav | default(false)
                 } %}
 
-                {% if page.breadcrumbs or page.heading %}
+                {% if page.breadcrumbs or page.heading or page.catalog_nav %}
                     <div class="page-header">
                         {% if page.breadcrumbs %}
                             {{ breadcrumbsComponent(items=breadcrumbs.items, size="sm", separator="slash") }}
                         {% endif %}
+
+                        {# Блок для навигации каталога #}
+                        {% block page_header_after %}{% endblock %}
+
                         {% if page.heading %}
                             {% include "components/general/heading/heading.njk" %}
                         {% endif %}
                     </div>
                 {% endif %}
 
-                {# <div
-                    class="page-container{% if page.sidebar %} has-sidebar sidebar-{{ page.sidebar_position }}{% if page.sidebar_class %} {{ page.sidebar_class }}{% endif %}{% endif %}"
-                >
-                    {% if page.sidebar %}
+                {# ОБЕРТКА В ЗАВИСИМОСТИ ОТ НАЛИЧИЯ САЙДБАРА #}
+                {% if page.sidebar %}
+                    <div class="container has-sidebar sidebar-{{ page.sidebar_position }}{% if page.sidebar_class %} {{ page.sidebar_class }}{% endif %}">
                         <aside class="page-sidebar">
                             <div class="inner">
                                 {% block sidebar %}{% endblock %}
                             </div>
                         </aside>
-                    {% endif %}
+                        <div class="page-content">
+                {% else %}
                     <div class="page-content">
-                        {% block content %}{% endblock %}
+                {% endif %}
+
+                            {# ОДИН БЛОК CONTENT #}
+                            {% block content %}{% endblock %}
+
+                {% if page.sidebar %}
+                        </div>
                     </div>
-                </div> #}
+                {% else %}
+                    </div>
+                {% endif %}
 
-                {% block content %}{% endblock %}
-
-                {# {% if page.after_content %}
+                {% if page.after_content %}
                     <div class="page-footer">
                         {% block after_content %}{% endblock %}
                     </div>
-                {% endif %} #}
+                {% endif %}
             </main>
 
             {# РАСКОММЕНТИРОВАН ТОЛЬКО POPUP-CALLBACK #}

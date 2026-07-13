@@ -198,6 +198,27 @@
                 }
             }
 
+            // Товары, которых нет в наличии
+            &.out-of-stock-product {
+                opacity: 0.5;
+                transition: opacity 0.3s ease;
+                pointer-events: none; // Делаем ссылку некликабельной
+
+                &:hover {
+                    opacity: 0.7;
+
+                    .search-product__name {
+                        color: var(--color-black); // Отменяем покраснение при наведении
+                    }
+                }
+
+                .search-product__status {
+                    &.out-of-stock {
+                        color: #7E7E7E;
+                    }
+                }
+            }
+
             // Обёртка для изображения
             &__image-wrapper {
                 flex-shrink: 0;
@@ -230,6 +251,7 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                transition: color 0.2s ease;
             }
 
             &__description {

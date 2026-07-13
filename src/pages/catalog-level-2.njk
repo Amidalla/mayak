@@ -1,18 +1,47 @@
-{% set meta = { title: "Каталог (уровень 2)" } %}
-{% set page = { heading: true } %}
+{% set meta = { title: "Электродвигатели" } %}
+
+{% set page = {
+    heading: false,
+    sidebar: true,
+    sidebar_position: "left",
+    sidebar_class: "catalog-sidebar",
+    after_content: true
+} %}
+
 {% set breadcrumbs = {
     items: [
         { title: "Главная", url: "./home.html" },
         { title: "Каталог", url: "./catalog.html" },
-        { title: "Каталог (уровень 2)" }
+        { title: "Электродвигатели" }
     ]
 } %}
-{% set title = { text: "Каталог (уровень 2)", tag: "h1", class: "title" } %}
+
 {% extends "layouts/default.njk" %}
-{% block content %}
-    <div class="container">
-        <p>Страница каталога (уровень 2). Здесь будет список товаров или подкатегорий.</p>
-        <p><a href="./product.html">Открыть пример карточки товара</a></p>
-    </div>
+
+{% block page_header_after %}
+    {% from "blocks/common/catalog-navigation/catalog-navigation.njk" import render as catalogNavigation %}
+
+    {% set navItems = [
+        { title: "Все электродвигатели", url: "./catalog.html", isAll: true },
+        { title: "Общепромышленные<br>электродвигатели", url: ".#", icon: "./assets/images/content/nav-icon.png" },
+        { title: "Взрывозащищенные<br>электродвигатели", url: "#", icon: "./assets/images/content/nav-icon.png" },
+        { title: "Однофазные<br>электродвигатели", url: "#", icon: "./assets/images/content/nav-icon.png" },
+        { title: "Специальные<br>электродвигатели", url: "#", icon: "./assets/images/content/nav-icon.png" },
+        { title: "Электродвигатели с встроенным<br>электромагнитным тормозом", url: "#", icon: "./assets/images/content/nav-icon.png" },
+        { title: "Запасные части и комплектующие<br>для электродвигателей", url: "#", icon: "./assets/images/content/nav-icon.png" }
+    ] %}
+
+    {{ catalogNavigation(navItems) }}
 {% endblock %}
 
+{% block content %}
+    {% include "blocks/common/catalog-content/catalog-content.njk" %}
+{% endblock %}
+
+{% block sidebar %}
+    {% include "components/general/filter/filter.njk" %}
+{% endblock %}
+
+{% block after_content %}
+    {% include "blocks/common/catalog-form/catalog-form.njk" %}
+{% endblock %}

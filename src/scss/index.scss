@@ -43,6 +43,8 @@
 @use "../components/general/consent-notice/consent-notice";
 @use "../components/general/consent-checkbox/consent-checkbox";
 @use "../components/general/logo/logo";
+@use "../components/general/catalog-card/catalog-card";
+@use "../components/general/filter/filter";
 /*@use "../components/general/input-file/input-file";
 @use "../components/general/newsletter-form/newsletter-form";
 @use "../components/general/files/files";
@@ -96,9 +98,9 @@
 // --------------------------------------
 @use "../blocks/general/header/header";
 @use "../blocks/general/footer/footer";
-/*@use "../blocks/general/sidebar/sidebar";
+@use "../blocks/general/sidebar/sidebar";
 @use "../blocks/general/section/section";
-@use "../blocks/general/error-404/error-404";
+/*@use "../blocks/general/error-404/error-404";
 @use "../blocks/general/search/search";*/
 
 @use "../blocks/common/hero/hero";
@@ -114,6 +116,9 @@
 @use "../blocks/common/benefits/benefits";
 @use "../blocks/common/main-form/main-form";
 @use "../blocks/common/catalog-form/catalog-form";
+@use "../blocks/common/search-result/search-result";
+@use "../blocks/common/catalog-content/catalog-content";
+@use "../blocks/common/catalog-navigation/catalog-navigation";
 /*@use "../blocks/common/payment/payment";
 @use "../blocks/common/delivery/delivery";
 @use "../blocks/common/documents/documents";

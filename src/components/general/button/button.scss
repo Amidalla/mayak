@@ -15,11 +15,11 @@
     --button-active-border-color: transparent;
     --button-width: auto;
     --button-height: 57px;
-    --button-padding: 19px 74px;
+    --button-padding: 19px 51px;
     --button-align-self: auto;
-    --button-font-size: 16px;
-    --button-font-weight: 400;
-    --button-line-height: 1.25rem;
+    --button-font-size: 18px;
+    --button-font-weight: 600;
+    --button-line-height: 120%;
 
     // Base styles
     position: relative;
@@ -79,13 +79,13 @@
     }
 
     // --------------------------------------
-    // Variants (3 варианта)
+    // Variants (4 варианта)
     // --------------------------------------
 
     // 1 вариант: Красная кнопка
     &.red {
         --button-width: 212px;
-        --button-height: 60px;
+        --button-height: 57px;
         --button-padding: 19px 51px;
         --button-font-size: 18px;
         --button-font-weight: 600;
@@ -100,13 +100,13 @@
         --button-active-border-color: var(--color-red-darker);
     }
 
-    // 2 вариант: Outline (обводка)
+    // 2 вариант: Outline (обводка) - черный бордер, прозрачный фон, черный текст
     &.outline {
+        --button-width: 212px;
         --button-height: 57px;
-        --button-padding: 19px 74px;
-        --button-align-self: stretch;
+        --button-padding: 19px 51px;
         --button-font-size: 18px;
-        --button-font-weight: 500;
+        --button-font-weight: 600;
         --button-line-height: 120%;
         --button-bg: transparent;
         --button-color: var(--color-black);
@@ -118,21 +118,40 @@
         --button-active-border-color: var(--color-black-light);
     }
 
-    // 3 вариант: Черная кнопка
+    // 3 вариант: Черная кнопка (ховер -> красная)
     &.black {
+        --button-width: 212px;
         --button-height: 57px;
-        --button-padding: 17px 67px;
-        --button-align-self: stretch;
+        --button-padding: 19px 51px;
         --button-font-size: 18px;
         --button-font-weight: 600;
         --button-line-height: 120%;
         --button-bg: var(--color-black);
         --button-color: var(--color-white);
         --button-border-color: var(--color-black);
-        --button-hover-bg: var(--color-black-light);
-        --button-hover-border-color: var(--color-black-light);
-        --button-active-bg: var(--color-black-lighter);
-        --button-active-border-color: var(--color-black-lighter);
+        --button-hover-bg: var(--color-red); // ← ховер становится красным
+        --button-hover-color: var(--color-white);
+        --button-hover-border-color: var(--color-red); // ← бордер тоже красный
+        --button-active-bg: var(--color-red-darker);
+        --button-active-border-color: var(--color-red-darker);
+    }
+
+    // 4 вариант: White (белая кнопка с черным бордером)
+    &.white {
+        --button-width: 212px;
+        --button-height: 57px;
+        --button-padding: 19px 51px;
+        --button-font-size: 18px;
+        --button-font-weight: 600;
+        --button-line-height: 120%;
+        --button-bg: var(--color-white);
+        --button-color: var(--color-black);
+        --button-border-color: var(--color-black);
+        --button-hover-bg: var(--color-black);
+        --button-hover-color: var(--color-white);
+        --button-hover-border-color: var(--color-black);
+        --button-active-bg: var(--color-black-light);
+        --button-active-border-color: var(--color-black-light);
     }
 
     // --------------------------------------
@@ -146,7 +165,8 @@
 
         &.red,
         &.outline,
-        &.black {
+        &.black,
+        &.white {
             --button-padding: 13px 37px;
             --button-font-size: 16px;
             --button-font-weight: 600;

@@ -1,46 +1,45 @@
-{% macro render(
-        items=[],
-        class=""
-    ) %}
-    {% set navClasses = "catalog-navigation" %}
-    {% if class %}
-        {% set navClasses = navClasses + " " + class %}
-    {% endif %}
-
-    <nav class="{{ navClasses }}">
-        {{ renderList(items, 1) }}
-    </nav>
-{% endmacro %}
-
-{% macro renderList(items, level) %}
-    <ul>
-        {% for item in items %}
-            {% set itemText = item.text or item.title %}
-            {% set liClasses = "" %}
-            {% if item.active %}
-                {% set liClasses = liClasses + " active" %}
-            {% endif %}
-            {% if item.class %}
-                {% set liClasses = liClasses + " " + item.class %}
-            {% endif %}
-            <li class="{{ liClasses }}">
-                <a
-                    href="{{ item.href }}"
-                    {% if itemText %}
-                        title="{{ itemText }}"
-                    {% endif %}
-                    {% if item.target %}
-                        target="{{ item.target }}"
-                    {% endif %}
-                    {% if item.active %}
-                        aria-current="page"
-                    {% elif item.ariaCurrent %}
-                        aria-current="{{ item.ariaCurrent }}"
-                    {% endif %}
-                >
-                    {{ itemText }}
-                </a>
-            </li>
-        {% endfor %}
-    </ul>
-{% endmacro %}
+<section class="catalog-navigation section bg">
+    <div class="container">
+        <div class="catalog-navigation__wrapper">
+            <a href="#" class="catalog-navigation__item catalog-navigation__item--all">
+                <span class="catalog-navigation__name">Все электродвигатели</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-1.png" alt="Общепромышленные электродвигатели">
+                </div>
+                <span class="catalog-navigation__name">Общепромышленные электродвигатели</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-2.png" alt="Взрывозащищенные электродвигатели">
+                </div>
+                <span class="catalog-navigation__name">Взрывозащищенные электродвигатели</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-3.png" alt="Однофазные электродвигатели">
+                </div>
+                <span class="catalog-navigation__name">Однофазные электродвигатели</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-4.png" alt="Специальные электродвигатели">
+                </div>
+                <span class="catalog-navigation__name">Специальные электродвигатели</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-5.png" alt="Электродвигатели с встроенным электромагнитным тормозом">
+                </div>
+                <span class="catalog-navigation__name">Электродвигатели с встроенным электромагнитным тормозом</span>
+            </a>
+            <a href="#" class="catalog-navigation__item">
+                <div class="catalog-navigation__icon">
+                    <img class="lazy" src="./assets/images/content/catalog-nav-6.png" alt="Запасные части и комплектующие для электродвигателей">
+                </div>
+                <span class="catalog-navigation__name">Запасные части и комплектующие для электродвигателей</span>
+            </a>
+        </div>
+    </div>
+</section>
