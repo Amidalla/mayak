@@ -37,6 +37,7 @@ import { catalogContent } from "../blocks/common/catalog-content/catalog-content
 import { filterToggle } from "../components/general/filter/filter.js";
 import { productCard } from "../blocks/common/product-card/product-card.js";
 import { similarProducts } from "../blocks/common/similar-products/similar-products.js";
+import { popupFeedbackSuccess } from "../components/common/popup-feedback-success/popup-feedback-success.js";
 
 const components = [
     productsTable,
@@ -72,7 +73,8 @@ const components = [
     catalogContent,
     filterToggle,
     productCard,
-    similarProducts
+    similarProducts,
+    popupFeedbackSuccess
 ];
 
 function init(context = document) {
