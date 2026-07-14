@@ -35,6 +35,8 @@ import { searchResult } from "../blocks/common/search-result/search-result.js";
 import { initCustomScroll } from "./utils/custom-scroll.js";
 import { catalogContent } from "../blocks/common/catalog-content/catalog-content.js";
 import { filterToggle } from "../components/general/filter/filter.js";
+import { productCard } from "../blocks/common/product-card/product-card.js";
+import { similarProducts } from "../blocks/common/similar-products/similar-products.js";
 
 const components = [
     productsTable,
@@ -68,7 +70,9 @@ const components = [
     searchForm,
     searchResult,
     catalogContent,
-    filterToggle
+    filterToggle,
+    productCard,
+    similarProducts
 ];
 
 function init(context = document) {

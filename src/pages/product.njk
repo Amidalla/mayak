@@ -2,7 +2,8 @@
 
 {% set page = {
     heading: false,
-    after_content: true
+    after_content: true,
+    sidebar: false
 } %}
 
 {% set breadcrumbs = {
@@ -17,16 +18,10 @@
 {% extends "layouts/default.njk" %}
 
 {% block content %}
-    <div class="container">
-        <!-- Секция product-card (пустая, будет оформлена позже) -->
-        {% include "blocks/common/product-card/product-card.njk" %}
-
-        <!-- Секция similar-products (пустая, будет оформлена позже) -->
-        {% include "blocks/common/similar-products/similar-products.njk" %}
-    </div>
+    {% include "blocks/common/product-card/product-card.njk" %}
+    {% include "blocks/common/similar-products/similar-products.njk" %}
 {% endblock %}
 
 {% block after_content %}
-    <!-- Форма в самом низу перед футером -->
     {% include "blocks/common/catalog-form/catalog-form.njk" %}
 {% endblock %}
