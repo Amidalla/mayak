@@ -9,7 +9,16 @@
 {% set title = { text: "О нас", tag: "h1", class: "title" } %}
 {% extends "layouts/default.njk" %}
 {% block content %}
-    <div class="container">
+    {% include "blocks/common/about-content/about-content.njk" %}
+    {% include "blocks/common/partners-short/partners-short.njk" %}
+    {% include "blocks/common/certificates/certificates.njk" %}
 
-    </div>
+    {# Заголовок "Статьи" по умолчанию #}
+    {% include "blocks/common/articles-short/articles-short.njk" %}
+
+    {# Передаем параметры через set #}
+    {% set additionalClass = "catalog-form--modified" %}
+    {% set titleText = "Есть вопросы? Заполните форму, и мы свяжемся с вами" %}
+    {% set buttonClass = "button black" %}
+    {% include "blocks/common/catalog-form/catalog-form.njk" %}
 {% endblock %}

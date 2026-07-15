@@ -156,4 +156,56 @@
       grid-row: 2 / 3;
     }
   }
+
+  &--modified {
+    background: #E8E8E8;
+
+    .catalog-form__bg {
+      display: none;
+    }
+
+    .catalog-form__title {
+        max-width: 100%;
+        color: var(--color-black);
+    }
+
+    .form .grid {
+      margin-left: 0;
+      margin-right: auto;
+
+      textarea,
+      input {
+        height: 60px;
+        background: var(--color-white);
+        color: var(--color-black);
+
+        &::placeholder {
+          color: var(--color-black);
+        }
+
+        @include bp.mq(tablet-xl) {
+          height: unset;
+        }
+      }
+
+      .consent-checkbox {
+        .checkbox {
+          background: var(--color-white);
+        }
+      }
+
+      .consent-checkbox.variant {
+        label {
+          .value {
+            color: var(--color-black);
+
+            a {
+              color: var(--color-black);
+            }
+          }
+        }
+      }
+
+    }
+  }
 }

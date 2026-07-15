@@ -1,9 +1,14 @@
+{# components/general/form/form.njk #}
+
 {% from "components/general/button/button.njk" import render as button %}
 {% from "components/general/select/select.njk" import render as select %}
 {% from "components/general/input/input.njk" import render as input %}
 {% from "components/general/textarea/textarea.njk" import render as textarea %}
 {% from "components/general/consent-checkbox/consent-checkbox.njk" import render as consentCheckbox %}
 {% from "components/general/input-file/input-file.njk" import render as inputFile %}
+
+{# Принимаем класс для кнопки извне #}
+{% set formButtonClass = formButtonClass | default("button red") %}
 
 <form class="form" data-validate>
     <div class="grid col-1">
@@ -59,7 +64,8 @@
                 text="Отправить",
                 type="submit",
                 variant="red",
-                disabled=true
+                disabled=true,
+                class=formButtonClass
             ) }}
         </div>
     </div>

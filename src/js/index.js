@@ -38,6 +38,8 @@ import { filterToggle } from "../components/general/filter/filter.js";
 import { productCard } from "../blocks/common/product-card/product-card.js";
 import { similarProducts } from "../blocks/common/similar-products/similar-products.js";
 import { popupFeedbackSuccess } from "../components/common/popup-feedback-success/popup-feedback-success.js";
+import { gallerySlider } from "../components/general/gallery-slider/gallery-slider.js";
+import { certificates } from "../blocks/common/certificates/certificates.js";
 
 const components = [
     productsTable,
@@ -74,7 +76,9 @@ const components = [
     filterToggle,
     productCard,
     similarProducts,
-    popupFeedbackSuccess
+    popupFeedbackSuccess,
+    gallerySlider,
+    certificates
 ];
 
 function init(context = document) {
