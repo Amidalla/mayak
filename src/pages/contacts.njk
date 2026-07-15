@@ -9,9 +9,5 @@
 {% set title = { text: "Контакты", tag: "h1", class: "title" } %}
 {% extends "layouts/default.njk" %}
 {% block content %}
-    {% include "blocks/common/contacts/contacts.njk" %}
-{% endblock %}
-{% block after_content %}
-    {% include "blocks/common/feedback/feedback.njk" %}
-    {% include "blocks/common/newsletter/newsletter.njk" %}
+    {% include "blocks/common/contacts-content/contacts-content.njk" %}
 {% endblock %}
