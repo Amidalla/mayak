@@ -2,7 +2,7 @@
 @use "core/mixins" as mix;
 
 .articles-short {
-  padding: 150px 0 76px 0;
+  padding: 73px 0 76px 0;
   background: #FAFAFA;
 
   @include bp.mq(laptop-l) {

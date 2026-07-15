@@ -16,9 +16,15 @@ export function accordion(context = document) {
             const panel = item.querySelector(".panel");
             const collapse = item.querySelector(".collapse");
             if (collapse && panel) {
-                collapse.style.maxHeight = null;
+                const currentHeight = collapse.scrollHeight;
+                collapse.style.maxHeight = currentHeight + 'px';
+
+                // Форсируем перерисовку
+                void collapse.offsetHeight;
+
                 item.classList.remove("is-open");
                 panel.setAttribute("aria-expanded", "false");
+                collapse.style.maxHeight = '0px';
             }
         };
 
@@ -26,16 +32,24 @@ export function accordion(context = document) {
             const panel = item.querySelector(".panel");
             const collapse = item.querySelector(".collapse");
             if (collapse && panel) {
-                collapse.style.maxHeight = `${collapse.scrollHeight + 1}px`;
+                // Добавляем класс
                 item.classList.add("is-open");
                 panel.setAttribute("aria-expanded", "true");
+
+                // Ждем один кадр, чтобы браузер применил класс
+                requestAnimationFrame(() => {
+                    // Теперь высота доступна
+                    const height = collapse.scrollHeight;
+                    collapse.style.maxHeight = height + 'px';
+                });
             }
         };
 
         const toggleItem = (targetItem) => {
             const isOpen = targetItem.classList.contains("is-open");
-            items.forEach(collapseItem);
-            if (!isOpen) {
+            if (isOpen) {
+                collapseItem(targetItem);
+            } else {
                 expandItem(targetItem);
             }
         };
@@ -46,12 +60,6 @@ export function accordion(context = document) {
                 panel.addEventListener("click", () => toggleItem(item), { signal });
             }
         });
-
-        // Open first item if aria-expanded is true
-        const firstPanel = items[0]?.querySelector(".panel");
-        if (firstPanel?.getAttribute("aria-expanded") === "true") {
-            expandItem(items[0]);
-        }
 
         root.addEventListener("destroy", () => controller.abort(), { once: true });
     });

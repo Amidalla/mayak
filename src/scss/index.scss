@@ -36,8 +36,8 @@
 @use "../components/general/navigation-bottom/navigation-bottom";
 @use "../components/general/breadcrumbs/breadcrumbs";
 @use "../components/general/search-form/search-form";
-/*@use "../components/general/pagination/pagination";
-@use "../components/general/accordion/accordion";*/
+/*@use "../components/general/pagination/pagination";*/
+@use "../components/general/accordion/accordion";
 @use "../components/general/tabs/tabs";
 /*@use "../components/general/preloader/preloader";*/
 @use "../components/general/consent-notice/consent-notice";
@@ -133,6 +133,7 @@
 @use "../blocks/common/partners-content/partners-content";
 @use "../blocks/common/articles-content/articles-content";
 @use "../blocks/common/article/article";
+@use "../blocks/common/faq-content/faq-content";
 /*@use "../blocks/common/payment/payment";
 @use "../blocks/common/delivery/delivery";
 @use "../blocks/common/documents/documents";
