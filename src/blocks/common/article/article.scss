@@ -1,0 +1,240 @@
+@use "core/breakpoints" as bp;
+@use "core/mixins" as mix;
+
+.article {
+  padding: 50px 0 100px 0;
+  background: var(--color-4);
+
+
+  @include bp.mq(tablet) {
+    padding: 40px 0 100px 0;
+  }
+
+  @include bp.mq(mobile-xl) {
+    padding: 20px 0 80px 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 45px;
+    align-items: flex-start;
+
+    @include bp.mq(laptop-l) {
+      gap: 20px;
+    }
+
+    @include bp.mq(tablet-l) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  // --------------------------------------
+  // Левый блок: картинка + заголовок (мобильный)
+  // --------------------------------------
+
+  &__left {
+    flex: 0 0 606px;
+    width: 606px;
+    order: 0;
+
+    @include bp.mq(laptop-l) {
+      flex: 0 0 426px;
+      width: 426px;
+    }
+
+    @include bp.mq(tablet-l) {
+      flex: 0 0 100%;
+      width: 100%;
+      order: 0;
+    }
+  }
+
+  &__title-mobile {
+    font-family: var(--font-family-headings);
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--color-black);
+    margin: 0 0 40px 0;
+    display: none;
+
+    @include bp.mq(tablet-l) {
+      display: block;
+    }
+
+    @include bp.mq(mobile-xl) {
+      font-size: 32px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    border-radius: 0 5px 5px 0;
+    overflow: hidden;
+    background: #F5F5F5;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
+
+  // --------------------------------------
+  // Правый блок: контент
+  // --------------------------------------
+
+  &__right {
+    flex: 1;
+    min-width: 0;
+    order: 1;
+
+    @include bp.mq(tablet-l) {
+      order: 1;
+      max-width: 100%;
+    }
+  }
+
+  &__title {
+    font-family: var(--font-family-headings);
+    font-size: 45px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--color-black);
+    margin: 0 0 40px 0;
+
+    @include bp.mq(tablet-l) {
+      display: none;
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+
+    @include bp.mq(tablet-l) {
+      margin-bottom: 73px;
+    }
+
+    @include bp.mq(mobile-xl) {
+      margin-bottom: 95px;
+    }
+
+    p {
+      font-family: var(--font-family-primary);
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 140%;
+      color: var(--color-black);
+      margin: 0 0 20px 0;
+
+      @include bp.mq(mobile-xl) {
+        font-size: 16px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      b {
+        font-weight: 500;
+        color: var(--color-black);
+      }
+    }
+  }
+
+  &__slider {
+    margin-bottom: 40px;
+  }
+
+  &__text-bottom {
+    margin-bottom: 60px;
+
+    p {
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 160%;
+      color: var(--color-black);
+      margin: 0;
+
+      @include bp.mq(mobile-xl) {
+        font-size: 16px;
+      }
+    }
+  }
+
+  // --------------------------------------
+  // Навигация (кнопки)
+  // --------------------------------------
+
+  &__navigation {
+    display: flex;
+    gap: 60px;
+
+    @include bp.mq(mobile-l) {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__nav-btn {
+    display: flex;
+    padding: 15px 30px;
+    align-items: center;
+    gap: 20px;
+    border-radius: 5px;
+    background: #EDEDED;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--color-black);
+    text-decoration: none;
+    transition: background 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+    border: none;
+
+    @include bp.mq(mobile) {
+      width: 100%;
+      justify-content: center;
+      padding: 12px 20px;
+      font-size: 16px;
+    }
+
+    &:hover {
+      background: var(--color-black);
+      color: var(--color-white);
+      text-decoration: none;
+
+      svg path {
+        fill: var(--color-white);
+      }
+    }
+
+    svg {
+      display: block;
+      flex-shrink: 0;
+
+      path {
+        transition: fill 0.3s ease;
+      }
+    }
+
+    &--prev {
+      svg {
+        transform: rotate(0);
+      }
+    }
+
+    &--next {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

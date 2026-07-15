@@ -1,0 +1,14 @@
+{% set meta = { title: "Статьи" } %}
+{% set page = { heading: false } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Статьи", url: "./articles.html" },
+        { title: "Защита асинхронного двигателя – способы и схемы" }
+    ]
+} %}
+{% set title = { text: "Защита асинхронного двигателя – способы и схемы", tag: "h1", class: "title" } %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    {% include "blocks/common/article/article.njk" %}
+{% endblock %}

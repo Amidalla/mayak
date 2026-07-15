@@ -33,14 +33,10 @@ export function gallerySlider(context = document) {
                     spaceBetween: 8,
                 },
                430: {
-                    slidesPerView: 1.5,
+                    slidesPerView: 2,
                     spaceBetween: 8,
                 },
-                768: {
-                    slidesPerView: 2,
-                    spaceBetween: 10,
-                },
-                1024: {
+                650: {
                     slidesPerView: 3,
                     spaceBetween: 10,
                 },
