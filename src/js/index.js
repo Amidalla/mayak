@@ -41,6 +41,7 @@ import { popupFeedbackSuccess } from "../components/common/popup-feedback-succes
 import { gallerySlider } from "../components/general/gallery-slider/gallery-slider.js";
 import { certificates } from "../blocks/common/certificates/certificates.js";
 import { photos } from "../blocks/common/photos/photos.js";
+import { articlesContent } from "../blocks/common/articles-content/articles-content.js";
 
 const components = [
     productsTable,
@@ -80,7 +81,8 @@ const components = [
     popupFeedbackSuccess,
     gallerySlider,
     certificates,
-    photos
+    photos,
+    articlesContent
 ];
 
 function init(context = document) {
