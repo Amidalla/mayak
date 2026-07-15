@@ -1,28 +1,20 @@
-{% from "components/general/button/button.njk" import render as button %}
+{# blocks/common/error-404/error-404.njk #}
 
 <section class="error-404 section">
     <div class="container">
         <div class="block">
-            <div class="image">
-                <picture class="lazy-loader">
-                    <img
-                        class="lazy"
-                        src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E"
-                        data-src="./assets/images/system/error-404.png"
-                        alt=""
-                    />
-                </picture>
+
+            <div class="error-404__image">
+                <img class="lazy" data-src="./assets/images/system/error-404.png" alt="404">
             </div>
+
+            <!-- Контент -->
             <div class="box">
-                {% set title = { text: "Страница не найдена", tag: "h1", class: "title" } %}
-                {% include "components/general/title/title.njk" %}
-                {% set text %}
-                    Если вы задавали адрес вручную, проверьте правильность его написания.
-                {% endset %}
-                {% include "components/general/text/text.njk" %}
-                <div class="buttons">
-                    {{ button(text="Каталог", href="catalog.html", type="link",  variant="primary", size="md") }}
-                    {{ button(text="На главную", href="home.html", type="link",  variant="tertiary", size="md") }}
+                <h1 class="title">Страница не найдена</h1>
+                <p class="text">Перейдите на главную  или посмотрите каталог продукции</p>
+                <div class="actions">
+                    <a href="./home.html" class="button outline">На главную</a>
+                    <a href="./catalog.html" class="button red">В каталог</a>
                 </div>
             </div>
         </div>

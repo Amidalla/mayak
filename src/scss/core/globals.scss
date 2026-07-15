@@ -123,7 +123,7 @@ h4 {
         flex-direction: column;
         gap: 53px;
         padding-top: 11px;
-        background: var(--color-4);
+        background: #F4F4F4;
 
          @include bp.mq(tablet) {
              gap: 50px;
@@ -153,7 +153,7 @@ h4 {
         &.has-sidebar {
             --sidebar-width: 375px;
             --sidebar-gap: 61px;
-            background: var(--color-4);
+            background: #F4F4F4;
 
             display: grid;
             grid-template-columns: 375px 1fr;

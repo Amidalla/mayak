@@ -3,7 +3,6 @@
 
 .articles-content {
   padding: 40px 0 150px 0;
-  background: var(--color-4);
 
   @include bp.mq(tablet) {
     padding: 20px 0 100px 0;

@@ -1,0 +1,13 @@
+{% set meta = { title: "Ошибка 404" } %}
+{% set page = { breadcrumbs: true, heading: false, after_content: false } %}
+{% set breadcrumbs = {
+    items: [
+        { title: "Главная", url: "./home.html" },
+        { title: "Каталог", url: "./catalog.html" },
+        { title: "Оформление заказа" }
+    ]
+} %}
+{% extends "layouts/default.njk" %}
+{% block content %}
+    {% include "blocks/general/error-404/error-404.njk" %}
+{% endblock %}

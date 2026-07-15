@@ -24,7 +24,6 @@ import { feedback } from "../blocks/common/feedback/feedback.js";
 import { delivery } from "../blocks/common/delivery/delivery.js";
 import { seo } from "../blocks/common/seo/seo.js";
 import { productDelivery } from "../components/common/product-delivery/product-delivery.js";
-import { widgetProductDelivery } from "../components/common/widget-product-delivery/widget-product-delivery.js";
 import { header } from "../blocks/general/header/header.js";
 import { showToast } from "../components/general/toast/toast.js";
 import { showPopup } from "./utils/popup.js";
@@ -70,7 +69,6 @@ const components = [
     delivery,
     productDelivery,
     seo,
-    widgetProductDelivery,
     feedback,
     searchForm,
     searchResult,
