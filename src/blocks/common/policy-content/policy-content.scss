@@ -2,18 +2,30 @@
 @use "core/mixins" as mix;
 
 .policy {
+    padding: 40px 0 150px 0;
+
+    @include bp.mq(tablet-l) {
+        padding: 40px 0 100px 0;
+    }
+
+    @include bp.mq(mobile-l) {
+        padding: 20px 0 80px 0;
+    }
+
     .block {
-        .date {
-            margin-bottom: 8px;
-            font-size: 14px;
-            color: var(--color-3);
-        }
 
         article {
             margin-bottom: 20px;
-            font-size: 16px;
+            color: #161B1B;
+            font-family: var(--font-family-headings);
+            font-size: 18px;
+            font-style: normal;
+            font-weight: 400;
             line-height: 150%;
-            color: var(--color-2);
+
+            b {
+                font-weight: 500;
+            }
 
             figure {
                 display: flex;
@@ -51,56 +63,36 @@
             h4,
             h5,
             h6 {
-                font-weight: 500;
-                line-height: 130%;
-                color: var(--color-2);
+                font-family: var(--font-family-headings);
+                font-weight: 400;
+                line-height: 150%;
+                color: #161B1B;
             }
 
             h2 {
-                font-size: 36px;
+                font-size: 45px;
+                font-style: normal;
+                margin-bottom: 15px;
 
-                @include bp.mq(laptop-l) {
-                    font-size: 32px;
+                @include bp.mq(tablet-xl) {
+                    font-size: 28px;
+                    line-height: 120%;
                 }
 
-                @include bp.mq(laptop) {
-                    font-size: 26px;
-                }
-                @include bp.mq(tablet) {
-                    font-size: 23px;
-                }
-            }
-
-            h3 {
-                font-size: 32px;
-
-                @include bp.mq(laptop) {
-                    font-size: 26px;
-                }
-            }
-
-            h4 {
-                font-size: 24px;
-
-                @include bp.mq(laptop) {
+                @include bp.mq(mobile-xl) {
                     font-size: 22px;
                 }
             }
 
-            h5 {
-                font-size: 22px;
-
-                @include bp.mq(laptop) {
-                    font-size: 20px;
-                }
+            h3 {
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 10px;
             }
 
-            h6 {
+            h4 {
                 font-size: 18px;
-
-                @include bp.mq(laptop) {
-                    font-size: 16px;
-                }
+                font-weight: 700;
             }
 
             @include mix.reset-child-outer-margins;

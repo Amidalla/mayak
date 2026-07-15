@@ -146,6 +146,25 @@ h4 {
                     font-size: 32px;
                 }
             }
+
+            .title-policy {
+                font-family: var(--font-family-headings);
+                font-size: 45px;
+                font-style: normal;
+                font-weight: 400;
+                line-height: 100%;
+                color: var(--color-black);
+                margin-top: 0;
+                margin-bottom: 0;
+
+                @include bp.mq(tablet-xl) {
+                    font-size: 32px;
+                }
+
+                @include bp.mq(mobile-xl) {
+                    font-size: 29px;
+                }
+            }
         }
     }
 
