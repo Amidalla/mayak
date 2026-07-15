@@ -44,6 +44,8 @@
 @use "../components/general/consent-checkbox/consent-checkbox";
 @use "../components/general/logo/logo";
 @use "../components/general/catalog-card/catalog-card";
+@use "../components/general/photo-card/photo-card";
+@use "../components/general/partner-card/partner-card";
 @use "../components/general/filter/filter";
 @use "../components/general/gallery-slider/gallery-slider";
 /*@use "../components/general/input-file/input-file";
@@ -126,6 +128,8 @@
 @use "../blocks/common/partners-short/partners-short";
 @use "../blocks/common/certificates/certificates";
 @use "../blocks/common/articles-short/articles-short";
+@use "../blocks/common/photos/photos";
+@use "../blocks/common/partners-content/partners-content";
 /*@use "../blocks/common/payment/payment";
 @use "../blocks/common/delivery/delivery";
 @use "../blocks/common/documents/documents";

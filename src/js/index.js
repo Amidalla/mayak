@@ -40,6 +40,7 @@ import { similarProducts } from "../blocks/common/similar-products/similar-produ
 import { popupFeedbackSuccess } from "../components/common/popup-feedback-success/popup-feedback-success.js";
 import { gallerySlider } from "../components/general/gallery-slider/gallery-slider.js";
 import { certificates } from "../blocks/common/certificates/certificates.js";
+import { photos } from "../blocks/common/photos/photos.js";
 
 const components = [
     productsTable,
@@ -78,7 +79,8 @@ const components = [
     similarProducts,
     popupFeedbackSuccess,
     gallerySlider,
-    certificates
+    certificates,
+    photos
 ];
 
 function init(context = document) {

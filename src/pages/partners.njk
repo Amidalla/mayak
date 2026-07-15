@@ -9,13 +9,6 @@
 {% set title = { text: "Партнеры", tag: "h1", class: "title" } %}
 {% extends "layouts/default.njk" %}
 {% block content %}
-    <div class="container">
-        <p>Список партнеров (логотипы/ссылки) — заглушка.</p>
-        <ul>
-            <li>Партнер 1</li>
-            <li>Партнер 2</li>
-            <li>Партнер 3</li>
-        </ul>
-    </div>
+     {% include "blocks/common/partners-content/partners-content.njk" %}
 {% endblock %}
 

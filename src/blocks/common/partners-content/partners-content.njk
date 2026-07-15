@@ -1,0 +1,45 @@
+{# blocks/common/partners-content/partners-content.njk #}
+
+<section class="partners-content section">
+    <div class="container">
+        <div class="partners-content__grid">
+            {% from "components/general/partner-card/partner-card.njk" import partnerCard %}
+
+            <!-- Партнер 1 -->
+            {{ partnerCard({
+                type: "ОАО",
+                name: "Могилевский завод лифтового машиностроения",
+                address: "Республика Беларусь, г. Могилев",
+                description: "Выпускается широкая номенклатура запасных частей и оборудование для модернизации морально устаревших и физически изношенных лифтов.",
+                image: "./assets/images/content/partner-1.png"
+            }) }}
+
+            <!-- Партнер 2 -->
+            {{ partnerCard({
+                type: "ООО",
+                name: "Электротехнический завод",
+                address: "Российская Федерация, г. Москва",
+                description: "Производство электродвигателей и комплектующих для промышленных предприятий. Высокое качество и надежность оборудования.",
+                image: "./assets/images/content/partner-2.png"
+            }) }}
+
+            <!-- Партнер 3 -->
+            {{ partnerCard({
+                type: "АО",
+                name: "Промышленные технологии",
+                address: "Республика Казахстан, г. Алматы",
+                description: "Поставка промышленного оборудования и запасных частей для горнодобывающей и металлургической промышленности.",
+                image: "./assets/images/content/partner-3.png"
+            }) }}
+
+            <!-- Партнер 4 -->
+            {{ partnerCard({
+                type: "ООО",
+                name: "Энергомаш",
+                address: "Российская Федерация, г. Санкт-Петербург",
+                description: "Разработка и производство энергетического оборудования, систем автоматизации и управления технологическими процессами.",
+                image: "./assets/images/content/partner-1.png"
+            }) }}
+        </div>
+    </div>
+</section>

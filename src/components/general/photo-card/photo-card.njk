@@ -1,0 +1,14 @@
+{# components/general/photo-card/photo-card.njk #}
+
+{% macro photoCard(params) %}
+    {% set hidden = params.hidden | default(false) %}
+
+    <div class="photo-card{% if hidden %} photo-card--hidden{% endif %}">
+        <a href="{{ params.image }}" data-fancybox="photos" class="photo-card__link">
+            <div class="photo-card__image">
+                <img class="lazy" data-src="{{ params.image }}" alt="{{ params.title }}">
+            </div>
+        </a>
+        <h3 class="photo-card__title">{{ params.title }}</h3>
+    </div>
+{% endmacro %}

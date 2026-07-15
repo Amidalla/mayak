@@ -9,35 +9,6 @@
 {% set title = { text: "Фотогалерея", tag: "h1", class: "title" } %}
 {% extends "layouts/default.njk" %}
 {% block content %}
-    <div class="container">
-        <p>Пример галереи на Fancybox:</p>
-
-        <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px;">
-            <a href="./assets/images/content/about-hero.png" data-fancybox="mayak-gallery" class="lazy-loader">
-                <img
-                    class="lazy"
-                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E"
-                    data-src="./assets/images/content/about-hero.png"
-                    alt=""
-                />
-            </a>
-            <a href="./assets/images/content/about-benefits.png" data-fancybox="mayak-gallery" class="lazy-loader">
-                <img
-                    class="lazy"
-                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E"
-                    data-src="./assets/images/content/about-benefits.png"
-                    alt=""
-                />
-            </a>
-            <a href="./assets/images/content/requisites-hero.png" data-fancybox="mayak-gallery" class="lazy-loader">
-                <img
-                    class="lazy"
-                    src="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='1'%20height='1'/%3E"
-                    data-src="./assets/images/content/requisites-hero.png"
-                    alt=""
-                />
-            </a>
-        </div>
-    </div>
+    {% include "blocks/common/photos/photos.njk" %}
 {% endblock %}
 

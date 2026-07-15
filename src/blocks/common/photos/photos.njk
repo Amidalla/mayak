@@ -1,0 +1,64 @@
+{# blocks/common/photos/photos.njk #}
+
+<section class="photos section">
+    <div class="container">
+
+        <div class="photos__grid">
+            {% from "components/general/photo-card/photo-card.njk" import photoCard %}
+
+            <!-- Фото 1 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-1.jpg',
+                title: 'Производственный цех №1. Сборка электродвигателей серии 5АИ'
+            }) }}
+
+            <!-- Фото 2 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-2.jpg',
+                title: 'Лаборатория контроля качества. Испытание двигателей на стенде'
+            }) }}
+
+            <!-- Фото 3 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-3.jpg',
+                title: 'Склад готовой продукции. Широкий ассортимент электродвигателей'
+            }) }}
+
+            <!-- Фото 4 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-1.jpg',
+                title: 'Цех обмотки. Изготовление статорных обмоток для двигателей'
+            }) }}
+
+            <!-- Фото 5 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-2.jpg',
+                title: 'Токарный участок. Обработка корпусных деталей двигателей'
+            }) }}
+
+            <!-- Фото 6 -->
+            {{ photoCard({
+                image: './assets/images/content/photo-3.jpg',
+                title: 'Сборочный цех. Финальная сборка электродвигателей'
+            }) }}
+
+            <!-- Фото 7 (скрыто) -->
+            {{ photoCard({
+                image: './assets/images/content/photo-1.jpg',
+                title: 'Окрасочная камера. Нанесение защитного покрытия на корпуса двигателей',
+                hidden: true
+            }) }}
+
+            <!-- Фото 8 (скрыто) -->
+            {{ photoCard({
+                image: './assets/images/content/photo-2.jpg',
+                title: 'Отгрузка готовой продукции клиентам. Погрузка электродвигателей',
+                hidden: true
+            }) }}
+        </div>
+
+        <div class="photos__more">
+            <button class="photos__more-btn button outline" id="showMorePhotos" data-text-more="Ещё" data-text-less="Скрыть">Ещё</button>
+        </div>
+    </div>
+</section>
