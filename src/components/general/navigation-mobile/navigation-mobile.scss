@@ -2,7 +2,6 @@
 @use "core/mixins" as mix;
 
 .navigation-mobile {
-
     ul {
         display: flex;
         flex-direction: column;
@@ -21,9 +20,9 @@
                 gap: 0.5rem;
                 align-items: center;
                 justify-content: space-between;
-                border-radius: 5px;
-                border-bottom: 1px solid #7E7E7E;
                 padding: 15px;
+                border-bottom: 1px solid #7e7e7e;
+                border-radius: 5px;
 
                 > a {
                     display: flex;
@@ -62,20 +61,18 @@
                     &:hover {
                         color: var(--color-primary);
                     }
-
                 }
             }
 
             &.is-open {
-
                 & > .item {
-                    border-radius: 0;
                     border-bottom: 1px solid var(--color-red);
+                    border-radius: 0;
 
-                   a {
-                       color: var(--color-red);
-                       font-size: 30px;
-                   }
+                    a {
+                        font-size: 30px;
+                        color: var(--color-red);
+                    }
                 }
 
                 > .item .toggle {
@@ -106,21 +103,21 @@
                 }
 
                 > .item {
-                    border: none;
                     padding: 0;
+                    border: none;
 
                     a {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        width: 100%;
+                        padding: 8px 15px;
                         font-size: 18px;
                         font-style: normal;
                         font-weight: 500;
                         line-height: 120%;
-                        color: #7E7E7E;
-                        display: flex;
-                        justify-content: space-between;
-                        align-items: center;
-                        width: 100%;
-                        padding: 8px 15px;
-                        background: #E7E7E7;
+                        color: #7e7e7e;
+                        background: #e7e7e7;
                     }
                 }
             }

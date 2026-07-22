@@ -29,7 +29,6 @@ export function popupFeedbackSuccess(context = document) {
         Fancybox.close();
     }
 
-
     window.PopupFeedbackSuccess = {
         open: openPopup,
         close: closePopup

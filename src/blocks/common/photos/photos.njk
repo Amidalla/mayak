@@ -2,7 +2,6 @@
 
 <section class="photos section bg">
     <div class="container">
-
         <div class="photos__grid">
             {% from "components/general/photo-card/photo-card.njk" import photoCard %}
 
@@ -58,7 +57,14 @@
         </div>
 
         <div class="photos__more">
-            <button class="photos__more-btn button outline" id="showMorePhotos" data-text-more="Ещё" data-text-less="Скрыть">Ещё</button>
+            <button
+                class="photos__more-btn button outline"
+                id="showMorePhotos"
+                data-text-more="Ещё"
+                data-text-less="Скрыть"
+            >
+                Ещё
+            </button>
         </div>
     </div>
 </section>

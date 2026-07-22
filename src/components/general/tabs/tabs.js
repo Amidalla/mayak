@@ -11,12 +11,12 @@ export function tabs(context = document) {
 
         const navItems = root.querySelectorAll("[data-tabs-nav]");
         const panels = root.querySelectorAll("[data-tabs-panel]");
-        const panelsContainer = root.querySelector('.panels');
+        const panelsContainer = root.querySelector(".panels");
 
         if (!navItems.length || !panels.length || !panelsContainer) return;
 
         let isTransitioning = false;
-        let currentHeight = 0;
+        // let currentHeight = 0; // Удалено - не используется
 
         // Функция обновления высоты контейнера
         const updateContainerHeight = (index) => {
@@ -27,9 +27,9 @@ export function tabs(context = document) {
             const wasHidden = activePanel.hidden;
             if (wasHidden) {
                 activePanel.hidden = false;
-                activePanel.style.position = 'absolute';
-                activePanel.style.opacity = '0';
-                activePanel.style.visibility = 'hidden';
+                activePanel.style.position = "absolute";
+                activePanel.style.opacity = "0";
+                activePanel.style.visibility = "hidden";
             }
 
             // Получаем высоту
@@ -37,22 +37,22 @@ export function tabs(context = document) {
 
             if (wasHidden) {
                 activePanel.hidden = true;
-                activePanel.style.position = '';
-                activePanel.style.opacity = '';
-                activePanel.style.visibility = '';
+                activePanel.style.position = "";
+                activePanel.style.opacity = "";
+                activePanel.style.visibility = "";
             }
 
             // Устанавливаем высоту контейнера
             if (height > 0) {
-                panelsContainer.style.minHeight = height + 'px';
-                currentHeight = height;
+                panelsContainer.style.minHeight = `${height}px`;
+                // currentHeight = height; // Удалено - не используется
             }
         };
 
         // Функция активации таба
         const activateTab = (index) => {
             if (isTransitioning) return;
-            if (navItems[index].classList.contains('is-active')) return;
+            if (navItems[index].classList.contains("is-active")) return;
 
             isTransitioning = true;
 
@@ -62,9 +62,6 @@ export function tabs(context = document) {
                 item.classList.toggle("is-active", isActive);
                 item.setAttribute("aria-selected", isActive ? "true" : "false");
             });
-
-            // Получаем целевую панель
-            const targetPanel = panels[index];
 
             // Сначала обновляем высоту контейнера под новую панель
             updateContainerHeight(index);
@@ -133,14 +130,14 @@ export function tabs(context = document) {
         });
 
         // Инициализация — устанавливаем высоту для активной панели
-        const activeIndex = Array.from(panels).findIndex(p => p.classList.contains('is-active'));
+        const activeIndex = Array.from(panels).findIndex((p) => p.classList.contains("is-active"));
         if (activeIndex !== -1) {
             setTimeout(() => {
                 updateContainerHeight(activeIndex);
             }, 100);
         } else if (panels.length > 0) {
             // Если нет активной — активируем первую
-            panels[0].classList.add('is-active');
+            panels[0].classList.add("is-active");
             panels[0].hidden = false;
             setTimeout(() => {
                 updateContainerHeight(0);
@@ -149,24 +146,24 @@ export function tabs(context = document) {
 
         // Обновляем высоту при ресайзе
         const handleResize = () => {
-            const activeIndex = Array.from(panels).findIndex(p => p.classList.contains('is-active'));
+            const activeIndex = Array.from(panels).findIndex((p) => p.classList.contains("is-active"));
             if (activeIndex !== -1) {
                 updateContainerHeight(activeIndex);
             }
         };
 
-        window.addEventListener('resize', handleResize);
+        window.addEventListener("resize", handleResize);
 
         // Используем ResizeObserver для отслеживания изменения размера панелей
         if (window.ResizeObserver) {
             const resizeObserver = new ResizeObserver(() => {
-                const activeIndex = Array.from(panels).findIndex(p => p.classList.contains('is-active'));
+                const activeIndex = Array.from(panels).findIndex((p) => p.classList.contains("is-active"));
                 if (activeIndex !== -1) {
                     updateContainerHeight(activeIndex);
                 }
             });
 
-            panels.forEach(panel => {
+            panels.forEach((panel) => {
                 resizeObserver.observe(panel);
             });
 
@@ -174,12 +171,16 @@ export function tabs(context = document) {
         }
 
         // Cleanup
-        root.addEventListener("destroy", () => {
-            controller.abort();
-            window.removeEventListener('resize', handleResize);
-            if (root._resizeObserver) {
-                root._resizeObserver.disconnect();
-            }
-        }, { once: true });
+        root.addEventListener(
+            "destroy",
+            () => {
+                controller.abort();
+                window.removeEventListener("resize", handleResize);
+                if (root._resizeObserver) {
+                    root._resizeObserver.disconnect();
+                }
+            },
+            { once: true }
+        );
     });
 }

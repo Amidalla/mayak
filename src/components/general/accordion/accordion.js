@@ -17,14 +17,14 @@ export function accordion(context = document) {
             const collapse = item.querySelector(".collapse");
             if (collapse && panel) {
                 const currentHeight = collapse.scrollHeight;
-                collapse.style.maxHeight = currentHeight + 'px';
+                collapse.style.maxHeight = `${currentHeight}px`;
 
                 // Форсируем перерисовку
                 void collapse.offsetHeight;
 
                 item.classList.remove("is-open");
                 panel.setAttribute("aria-expanded", "false");
-                collapse.style.maxHeight = '0px';
+                collapse.style.maxHeight = "0px";
             }
         };
 
@@ -40,7 +40,7 @@ export function accordion(context = document) {
                 requestAnimationFrame(() => {
                     // Теперь высота доступна
                     const height = collapse.scrollHeight;
-                    collapse.style.maxHeight = height + 'px';
+                    collapse.style.maxHeight = `${height}px`;
                 });
             }
         };

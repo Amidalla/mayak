@@ -2,7 +2,7 @@
 import { Fancybox } from "@fancyapps/ui/dist/fancybox/";
 
 export function certificates(context = document) {
-    const root = context.querySelector('.certificates');
+    const root = context.querySelector(".certificates");
     if (!root || root.dataset.init === "true") return;
 
     root.dataset.init = "true";
@@ -12,15 +12,15 @@ export function certificates(context = document) {
         Fancybox.bind(links, {});
     }
 
-    const wrapper = root.querySelector('.certificates__slider-wrapper');
-    const slider = root.querySelector('.certificates__slider');
+    const wrapper = root.querySelector(".certificates__slider-wrapper");
+    const slider = root.querySelector(".certificates__slider");
 
     function checkOverflow() {
         if (!wrapper || !slider) return;
 
         // Считаем ширину контента
         let totalWidth = 0;
-        const items = slider.querySelectorAll('.certificates__item');
+        const items = slider.querySelectorAll(".certificates__item");
         const gap = 20;
 
         items.forEach((item, index) => {
@@ -33,29 +33,29 @@ export function certificates(context = document) {
         const wrapperWidth = wrapper.clientWidth;
 
         if (totalWidth > wrapperWidth) {
-            wrapper.classList.add('has-scroll');
+            wrapper.classList.add("has-scroll");
         } else {
-            wrapper.classList.remove('has-scroll');
+            wrapper.classList.remove("has-scroll");
         }
     }
 
     setTimeout(checkOverflow, 100);
 
     let resizeTimer;
-    window.addEventListener('resize', () => {
+    window.addEventListener("resize", () => {
         clearTimeout(resizeTimer);
         resizeTimer = setTimeout(checkOverflow, 200);
     });
 
     // Также проверяем при загрузке изображений
-    const images = slider.querySelectorAll('img');
+    const images = slider.querySelectorAll("img");
     if (images.length) {
         let loaded = 0;
-        images.forEach(img => {
+        images.forEach((img) => {
             if (img.complete) {
                 loaded++;
             } else {
-                img.addEventListener('load', () => {
+                img.addEventListener("load", () => {
                     loaded++;
                     if (loaded === images.length) {
                         setTimeout(checkOverflow, 50);
@@ -69,7 +69,7 @@ export function certificates(context = document) {
         "destroy",
         () => {
             Fancybox.unbind(links);
-            window.removeEventListener('resize', checkOverflow);
+            window.removeEventListener("resize", checkOverflow);
         },
         { once: true }
     );

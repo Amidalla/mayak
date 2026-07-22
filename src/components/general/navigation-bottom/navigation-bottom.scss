@@ -2,55 +2,59 @@
 @use "core/mixins" as mixin;
 
 .navigation-bottom {
-   & > ul {
-       padding: 0;
-       margin: 0;
-       list-style: none;
-       display: flex;
-       flex-direction: column;
-       gap: 20px;
+    & > ul {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
 
-       li {
-           a {
-               font-size: 18px;
-               font-style: normal;
-               font-weight: 500;
-               line-height: 19px;
-               color: var(--color-black);
-               transition: all 0.3s ease;
+        @include bp.mq(mobile-xl) {
+            gap: 15.25px;
+        }
 
-               &:hover {
-                   color: var(--color-red);
-                   text-decoration: none;
-               }
-           }
+        li {
+            a {
+                font-size: 18px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 19px;
+                color: var(--color-black);
+                transition: all 0.3s ease;
 
-           ul {
-               margin-top: 15px;
-               margin-bottom: 0;
-               padding: 0;
-               display: flex;
-               flex-direction: column;
-               gap: 10px;
-               list-style: none;
+                &:hover {
+                    color: var(--color-red);
+                    text-decoration: none;
+                }
+            }
 
-               li {
-                   a {
-                       font-size: 16px;
-                       font-style: normal;
-                       font-weight: 400;
-                       line-height: 19px;
-                       color: #807676;
-                       border-bottom: 2px solid transparent;
-                       transition: all 0.3s ease;
+            ul {
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 0;
+                margin-top: 15px;
+                margin-bottom: 0;
+                list-style: none;
 
-                       &:hover {
-                           color: var(--color-red);
-                           border-bottom: 2px solid var(--color-red);
-                       }
-                   }
-               }
-           }
-       }
-   }
+                li {
+                    a {
+                        font-size: 16px;
+                        font-style: normal;
+                        font-weight: 400;
+                        line-height: 19px;
+                        color: #807676;
+                        border-bottom: 2px solid transparent;
+                        transition: all 0.3s ease;
+
+                        &:hover {
+                            color: var(--color-red);
+                            border-bottom: 2px solid var(--color-red);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -39,24 +39,26 @@
 
                 {# ОБЕРТКА В ЗАВИСИМОСТИ ОТ НАЛИЧИЯ САЙДБАРА #}
                 {% if page.sidebar %}
-                    <div class="container has-sidebar sidebar-{{ page.sidebar_position }}{% if page.sidebar_class %} {{ page.sidebar_class }}{% endif %}">
+                    <div
+                        class="container has-sidebar sidebar-{{ page.sidebar_position }}{% if page.sidebar_class %} {{ page.sidebar_class }}{% endif %}"
+                    >
                         <aside class="page-sidebar">
                             <div class="inner">
                                 {% block sidebar %}{% endblock %}
                             </div>
                         </aside>
                         <div class="page-content">
-                {% else %}
-                    <div class="page-content">
-                {% endif %}
+                        {% else %}
+                            <div class="page-content">
+                            {% endif %}
 
                             {# ОДИН БЛОК CONTENT #}
                             {% block content %}{% endblock %}
 
-                {% if page.sidebar %}
+                            {% if page.sidebar %}
+                            </div>
                         </div>
-                    </div>
-                {% else %}
+                    {% else %}
                     </div>
                 {% endif %}
 
@@ -67,7 +69,6 @@
                 {% endif %}
             </main>
 
-            {# РАСКОММЕНТИРОВАН ТОЛЬКО POPUP-CALLBACK #}
             {% include "blocks/general/footer/footer.njk" %}
 
             {% include "components/general/menu/menu.njk" %}
@@ -75,13 +76,6 @@
             {% include "components/common/popup-callback/popup-callback.njk" %}
 
             {% include "components/common/popup-feedback-success/popup-feedback-success.njk" %}
-
-            {# ВСЁ ОСТАЛЬНОЕ ЗАКОММЕНТИРОВАНО #}
-            {# {% include "components/common/popup-callback-success/popup-callback-success.njk" %}
-            {% include "components/common/popup-feedback/popup-feedback.njk" %}
-            {% include "components/common/popup-order-success/popup-order-success.njk" %}
-            {% include "components/common/popup-price/popup-price.njk" %}
-            {% include "components/common/popup-invoice/popup-invoice.njk" %} #}
 
             {% set consentContent %}
                 Мы используем файлы cookie и сервис веб-аналитики Яндекс Метрика для улучшения работы сайта. Оставаясь на

@@ -59,9 +59,8 @@ export function searchForm(context = document) {
     });
 
     // Кнопка "Показать все результаты" - не закрывает поиск, просто переходит по ссылке
-    allResultsBtn?.addEventListener("click", (e) => {
+    allResultsBtn?.addEventListener("click", () => {
         // Ничего не делаем, просто переходим по ссылке
-        // Можно добавить аналитику, если нужно
     });
 
     root.addEventListener(
@@ -72,5 +71,5 @@ export function searchForm(context = document) {
         { once: true }
     );
 
-    return { open, close, toggle: () => isOpen ? close() : open() };
+    return { open, close, toggle: () => (isOpen ? close() : open()) };
 }

@@ -1,11 +1,11 @@
 export function filterToggle(context = document) {
-    const filter = context.querySelector('.filter');
+    const filter = context.querySelector(".filter");
     if (!filter || filter.dataset.init === "true") return;
 
     filter.dataset.init = "true";
 
-    const header = filter.querySelector('#filterToggle');
-    const body = filter.querySelector('#filterBody');
+    const header = filter.querySelector("#filterToggle");
+    const body = filter.querySelector("#filterBody");
 
     if (!header || !body) return;
 
@@ -16,31 +16,31 @@ export function filterToggle(context = document) {
         const isDesktop = window.innerWidth > LAPTOP_BREAKPOINT;
 
         if (isDesktop) {
-            body.style.display = 'block';
-            filter.classList.remove('is-open');
+            body.style.display = "block";
+            filter.classList.remove("is-open");
             isOpen = false;
         } else {
-            body.style.display = 'none';
-            filter.classList.remove('is-open');
+            body.style.display = "none";
+            filter.classList.remove("is-open");
             isOpen = false;
         }
     }
 
     function openFilter() {
-        filter.classList.add('is-open');
-        body.style.display = 'block';
+        filter.classList.add("is-open");
+        body.style.display = "block";
         isOpen = true;
 
         setTimeout(() => {
-            body.querySelectorAll('.custom-scroll__container').forEach(el => {
-                el.dispatchEvent(new Event('scroll'));
+            body.querySelectorAll(".custom-scroll__container").forEach((el) => {
+                el.dispatchEvent(new Event("scroll"));
             });
         }, 350);
     }
 
     function closeFilter() {
-        filter.classList.remove('is-open');
-        body.style.display = 'none';
+        filter.classList.remove("is-open");
+        body.style.display = "none";
         isOpen = false;
     }
 
@@ -53,7 +53,7 @@ export function filterToggle(context = document) {
     }
 
     // Клик по заголовку
-    header.addEventListener('click', function(e) {
+    header.addEventListener("click", (e) => {
         e.stopPropagation();
         const isDesktop = window.innerWidth > LAPTOP_BREAKPOINT;
         if (isDesktop) return;
@@ -62,7 +62,7 @@ export function filterToggle(context = document) {
     });
 
     // Клик вне фильтра
-    document.addEventListener('click', function(e) {
+    document.addEventListener("click", (e) => {
         const isDesktop = window.innerWidth > LAPTOP_BREAKPOINT;
         if (isDesktop) return;
 
@@ -75,8 +75,8 @@ export function filterToggle(context = document) {
     });
 
     // Закрытие при нажатии Escape
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && isOpen) {
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && isOpen) {
             const isDesktop = window.innerWidth > LAPTOP_BREAKPOINT;
             if (!isDesktop) {
                 closeFilter();
@@ -85,7 +85,7 @@ export function filterToggle(context = document) {
     });
 
     let resizeTimeout;
-    window.addEventListener('resize', function() {
+    window.addEventListener("resize", () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(checkDesktop, 250);
     });

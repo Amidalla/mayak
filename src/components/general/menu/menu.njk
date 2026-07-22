@@ -2,7 +2,7 @@
 
 <div class="menu" data-dropdown="menu">
     <div class="menu-header">
-        <span class="menu-title"><img class="lazy" src="./assets/images/system/logo.svg" alt=""></span>
+        <span class="menu-title"><img class="lazy" src="./assets/images/system/logo.svg" alt="" /></span>
         <button class="menu-close" type="button" aria-label="Закрыть меню" data-toggle="menu">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect
@@ -26,35 +26,35 @@
             </svg>
         </button>
     </div>
-   <div class="menu-navigation">
-       {{ navigationMobile(
-           items=[
-               {
-                   title: "О компании",
-                   href: "./about.html",
-                   children: [
-                       { title: "Фотогалерея", href: "./gallery.html" }
-                   ]
-               },
-               {
-                   title: "Каталог",
-                   href: "./catalog.html",
-                   children: [
-                       { title: "Каталог (уровень 2)", href: "./catalog-level-2.html" },
-                       { title: "Каталог (уровень 2)", href: "./catalog-level-2.html" }
-                   ]
-               },
-               { title: "Партнеры", href: "./partners.html" },
-               { title: "Статьи", href: "./articles.html" },
-               { title: "Вопрос-ответ", href: "./faq.html" },
-               { title: "Контакты", href: "./contacts.html" }
-           ]
-       ) }}
-   </div>
+    <div class="menu-navigation">
+        {{ navigationMobile(
+            items=[
+                {
+                    title: "О компании",
+                    href: "./about.html",
+                    children: [
+                        { title: "Фотогалерея", href: "./gallery.html" }
+                    ]
+                },
+                {
+                    title: "Каталог",
+                    href: "./catalog.html",
+                    children: [
+                        { title: "Электродвигатели", href: "./catalog-level-2.html" },
+                        { title: "Защитная аппаратура", href: "./catalog-level-2.html" }
+                    ]
+                },
+                { title: "Партнеры", href: "./partners.html" },
+                { title: "Статьи", href: "./articles.html" },
+                { title: "Вопрос-ответ", href: "./faq.html" },
+                { title: "Контакты", href: "./contacts.html" }
+            ]
+        ) }}
+    </div>
     <div class="menu-contacts">
         {% include "components/common/contacts-mobile/contacts-mobile.njk" %}
     </div>
     <div class="menu-svg">
-       <img class="lazy" src="./assets/images/content/mobile-menu-svg.svg" alt="">
+        <img class="lazy" src="./assets/images/content/mobile-menu-svg.svg" alt="" />
     </div>
 </div>

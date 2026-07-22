@@ -2,10 +2,10 @@
 @use "core/mixins" as mix;
 
 .textarea {
-
     // Base styles
     display: block;
     width: 100%;
+    padding: 11px;
     font-family: var(--font-family-unna);
     font-size: 15px;
     font-weight: 400;
@@ -14,20 +14,20 @@
     resize: vertical;
     outline: none;
     background: var(--color-4);
-    border: none;
+    border: 1px solid transparent;
     border-radius: 3px;
     transition: all 0.2s ease-in-out;
-    padding: 11px;
 
     &::placeholder {
         color: var(--color-5);
         opacity: 1;
     }
 
-    // Focus state
-    &:focus,
-    &:focus-within:not(:read-only) {
-        border-color: var(--color-4);
+    // Hover / Focus state
+    &:hover:not(:disabled):not(:read-only),
+    &:focus:not(:read-only),
+    &:focus-visible:not(:read-only) {
+        border-color: var(--color-red);
     }
 
     // Disabled state

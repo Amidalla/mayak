@@ -1,17 +1,17 @@
 // src/js/utils/custom-scroll.js
 export function initCustomScroll(context = document) {
-    const customScrolls = context.querySelectorAll('.custom-scroll');
+    const customScrolls = context.querySelectorAll(".custom-scroll");
 
-    customScrolls.forEach(function(scroll) {
-        const container = scroll.querySelector('.custom-scroll__container');
-        const track = scroll.querySelector('.custom-scroll__track');
-        const thumb = scroll.querySelector('.custom-scroll__thumb');
+    customScrolls.forEach((scroll) => {
+        const container = scroll.querySelector(".custom-scroll__container");
+        const track = scroll.querySelector(".custom-scroll__track");
+        const thumb = scroll.querySelector(".custom-scroll__thumb");
 
         if (!container || !track || !thumb) return;
 
         // Проверяем, инициализирован ли уже этот скролл
-        if (scroll.dataset.initialized === 'true') return;
-        scroll.dataset.initialized = 'true';
+        if (scroll.dataset.initialized === "true") return;
+        scroll.dataset.initialized = "true";
 
         // Функция обновления позиции thumb
         function updateThumb() {
@@ -19,29 +19,29 @@ export function initCustomScroll(context = document) {
             const clientHeight = container.clientHeight;
 
             if (scrollHeight <= clientHeight) {
-                track.style.display = 'none';
+                track.style.display = "none";
                 return;
             }
 
-            track.style.display = 'block';
+            track.style.display = "block";
 
             const scrollTop = container.scrollTop;
             const maxScrollTop = scrollHeight - clientHeight;
             const thumbHeight = Math.max(20, (clientHeight / scrollHeight) * track.clientHeight);
 
-            thumb.style.height = thumbHeight + 'px';
+            thumb.style.height = `${thumbHeight}px`;
 
             const thumbTop = (scrollTop / maxScrollTop) * (track.clientHeight - thumbHeight);
-            thumb.style.top = thumbTop + 'px';
+            thumb.style.top = `${thumbTop}px`;
         }
 
         // Обновляем при скролле
-        container.addEventListener('scroll', updateThumb);
+        container.addEventListener("scroll", updateThumb);
 
         // Перетаскивание thumb
         let isDragging = false;
 
-        thumb.addEventListener('mousedown', function(e) {
+        thumb.addEventListener("mousedown", (e) => {
             e.preventDefault();
             isDragging = true;
             const startY = e.clientY;
@@ -58,7 +58,7 @@ export function initCustomScroll(context = document) {
                 let newTop = startTop + deltaY;
                 newTop = Math.max(0, Math.min(newTop, maxTop));
 
-                thumb.style.top = newTop + 'px';
+                thumb.style.top = `${newTop}px`;
 
                 // Прокручиваем контейнер
                 const scrollRatio = newTop / maxTop;
@@ -68,12 +68,12 @@ export function initCustomScroll(context = document) {
 
             function onMouseUp() {
                 isDragging = false;
-                document.removeEventListener('mousemove', onMouseMove);
-                document.removeEventListener('mouseup', onMouseUp);
+                document.removeEventListener("mousemove", onMouseMove);
+                document.removeEventListener("mouseup", onMouseUp);
             }
 
-            document.addEventListener('mousemove', onMouseMove);
-            document.addEventListener('mouseup', onMouseUp);
+            document.addEventListener("mousemove", onMouseMove);
+            document.addEventListener("mouseup", onMouseUp);
         });
 
         // Обновляем при ресайзе

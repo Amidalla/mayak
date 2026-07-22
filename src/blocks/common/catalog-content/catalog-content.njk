@@ -3,7 +3,6 @@
     <h1 class="catalog-page__title">Электродвигатели</h1>
 
     <section class="catalog-content section">
-
         <div class="catalog-content__list">
             {% from "components/general/catalog-card/catalog-card.njk" import catalogCard %}
 
@@ -161,7 +160,14 @@
         </div>
 
         <div class="catalog-content__more">
-            <button class="catalog-content__more-btn button outline" id="showMoreBtn" data-text-more="Ещё" data-text-less="Скрыть">Ещё</button>
+            <button
+                class="catalog-content__more-btn button outline"
+                id="showMoreBtn"
+                data-text-more="Ещё"
+                data-text-less="Скрыть"
+            >
+                Ещё
+            </button>
         </div>
     </section>
 </div>

@@ -19,21 +19,20 @@
     {% set buttonClass = "button red" %}
 {% endif %}
 
-<section class="catalog-form section{% if additionalClass %} {{ additionalClass }}{% endif %}">
+<section
+    class="catalog-form section{% if additionalClass %} {{ additionalClass }}{% endif %}"
+>
     <picture class="catalog-form__bg">
-        <source media="(max-width: 600px)" srcset="./assets/images/content/form-mobile.jpg">
-        <source media="(max-width: 1279.98px)" srcset="./assets/images/content/form-tablet.jpg">
-        <img class="lazy" data-src="./assets/images/content/catalog-form.jpg" alt="">
+        <source media="(max-width: 600px)" srcset="./assets/images/content/form-mobile.jpg" />
+        <source media="(max-width: 1279.98px)" srcset="./assets/images/content/form-tablet.jpg" />
+        <img class="lazy" data-src="./assets/images/content/catalog-form.jpg" alt="" />
     </picture>
     <div class="container">
-        {% set title = {
-            text: titleText,
-            tag: "h2",
-            class: "catalog-form__title"
-        } %}
+        {% set title = { text: titleText, tag: "h2", class: "catalog-form__title" } %}
         {% include "components/general/title/title.njk" %}
 
         {% set formButtonClass = buttonClass %}
+        {% set formIdPrefix = "catalog" %}
         {% include "components/general/form/form.njk" %}
     </div>
 </section>

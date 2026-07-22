@@ -2,185 +2,184 @@
 @use "core/mixins" as mix;
 
 .certificates {
-  padding: 60px 0 80px 0;
-  background: var(--color-white);
-
-  @include bp.mq(tablet) {
-    padding: 40px 0 60px 0;
-  }
-
-  @include bp.mq(mobile) {
-    padding: 30px 0 40px 0;
-  }
-
-  &__top {
-    text-align: left;
-    margin-bottom: 40px;
-
-    @include bp.mq(mobile) {
-      margin-bottom: 30px;
-    }
-  }
-
-  &__title {
-    font-family: var(--font-family-headings);
-    font-size: 45px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    color: var(--color-black);
-    margin: 0 0 10px 0;
+    padding: 60px 0 80px;
+    background: var(--color-white);
 
     @include bp.mq(tablet) {
-      font-size: 32px;
-    }
-  }
-
-  &__subtitle {
-    font-family: var(--font-family-headings);
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 100%;
-    color: #5B5B5B;
-    margin: 0;
-
-    @include bp.mq(mobile-xl) {
-      font-size: 16px;
+        padding: 40px 0 60px;
     }
 
     @include bp.mq(mobile) {
-      font-size: 14px;
-    }
-  }
-
-  &__slider-wrapper {
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    padding-bottom: 10px;
-    margin-bottom: -10px;
-
-    &::-webkit-scrollbar {
-      display: none;
+        padding: 30px 0 40px;
     }
 
-    // Когда есть прокрутка - убираем правый отступ
-    &.has-scroll {
-      margin-right: calc(-1 * var(--container-padding));
-      padding-right: var(--container-padding);
-    }
-  }
+    &__top {
+        margin-bottom: 40px;
+        text-align: left;
 
-  &__slider {
-    display: flex;
-    gap: 20px;
-    flex-wrap: nowrap;
-    width: max-content;
-    min-width: 100%;
-
-    // На мобилке - колонка
-    @media (max-width: 768px) {
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      width: 100%;
-    }
-  }
-
-  &__item {
-    flex: 0 0 285px;
-    width: 285px;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-
-    // На мобилке - центрируем
-    @media (max-width: 768px) {
-      flex: 0 0 auto;
-      width: 100%;
-      max-width: 285px;
-    }
-  }
-
-  &__link {
-    display: block;
-    width: 100%;
-    height: 400px;
-    text-decoration: none;
-    position: relative;
-    border-radius: 8px;
-    overflow: hidden;
-
-    @media (max-width: 768px) {
-      height: 400px;
-      margin: 0 auto;
-    }
-  }
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(232, 232, 232, 0.87);
-    transition: opacity 0.3s ease;
-    z-index: 1;
-    pointer-events: none;
-
-    .certificates__item:hover & {
-      opacity: 0;
-    }
-  }
-
-  &__icon {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 2;
-    opacity: 1;
-    transition: opacity 0.3s ease;
-
-    .certificates__item:hover & {
-      opacity: 0;
+        @include bp.mq(mobile) {
+            margin-bottom: 30px;
+        }
     }
 
-    svg {
-      display: block;
-      width: 105px;
-      height: 100px;
-    }
-  }
+    &__title {
+        margin: 0 0 10px;
+        font-family: var(--font-family-headings);
+        font-size: 45px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        color: var(--color-black);
 
-  &__caption {
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 120%;
-    color: var(--color-black);
-    text-align: center;
-    margin-top: 12px;
-    padding: 0 5px;
-    display: block;
-  }
+        @include bp.mq(tablet) {
+            font-size: 32px;
+        }
+    }
+
+    &__subtitle {
+        margin: 0;
+        font-family: var(--font-family-headings);
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 100%;
+        color: #5b5b5b;
+
+        @include bp.mq(mobile-xl) {
+            font-size: 16px;
+        }
+
+        @include bp.mq(mobile) {
+            font-size: 14px;
+        }
+    }
+
+    &__slider-wrapper {
+        padding-bottom: 10px;
+        margin-bottom: -10px;
+        overflow: auto hidden;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
+        // Когда есть прокрутка - убираем правый отступ
+        &.has-scroll {
+            padding-right: var(--container-padding);
+            margin-right: calc(-1 * var(--container-padding));
+        }
+    }
+
+    &__slider {
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 20px;
+        width: max-content;
+        min-width: 100%;
+
+        // На мобилке - колонка
+        @media (width <= 768px) {
+            flex-direction: column;
+            gap: 15px;
+            align-items: center;
+            width: 100%;
+        }
+    }
+
+    &__item {
+        position: relative;
+        flex: 0 0 285px;
+        width: 285px;
+        overflow: hidden;
+        border-radius: 8px;
+
+        // На мобилке - центрируем
+        @media (width <= 768px) {
+            flex: 0 0 auto;
+            width: 100%;
+            max-width: 285px;
+        }
+    }
+
+    &__link {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        text-decoration: none;
+        border-radius: 8px;
+
+        @media (width <= 768px) {
+            height: 400px;
+            margin: 0 auto;
+        }
+    }
+
+    &__image {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+    &__overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        background: rgb(232 232 232 / 87%);
+        transition: opacity 0.3s ease;
+
+        .certificates__item:hover & {
+            opacity: 0;
+        }
+    }
+
+    &__icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        z-index: 2;
+        pointer-events: none;
+        opacity: 1;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.3s ease;
+
+        .certificates__item:hover & {
+            opacity: 0;
+        }
+
+        svg {
+            display: block;
+            width: 105px;
+            height: 100px;
+        }
+    }
+
+    &__caption {
+        display: block;
+        padding: 0 5px;
+        margin-top: 12px;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 600;
+        line-height: 120%;
+        color: var(--color-black);
+        text-align: center;
+    }
 }

@@ -2,26 +2,25 @@
 @use "core/mixins" as mix;
 
 .policy {
-    padding: 40px 0 150px 0;
+    padding: 40px 0 150px;
 
     @include bp.mq(tablet-l) {
-        padding: 40px 0 100px 0;
+        padding: 40px 0 100px;
     }
 
     @include bp.mq(mobile-l) {
-        padding: 20px 0 80px 0;
+        padding: 20px 0 80px;
     }
 
     .block {
-
         article {
             margin-bottom: 20px;
-            color: #161B1B;
             font-family: var(--font-family-headings);
             font-size: 18px;
             font-style: normal;
             font-weight: 400;
             line-height: 150%;
+            color: #161b1b;
 
             b {
                 font-weight: 500;
@@ -66,13 +65,13 @@
                 font-family: var(--font-family-headings);
                 font-weight: 400;
                 line-height: 150%;
-                color: #161B1B;
+                color: #161b1b;
             }
 
             h2 {
+                margin-bottom: 15px;
                 font-size: 45px;
                 font-style: normal;
-                margin-bottom: 15px;
 
                 @include bp.mq(tablet-xl) {
                     font-size: 28px;
@@ -85,9 +84,9 @@
             }
 
             h3 {
+                margin-bottom: 10px;
                 font-size: 20px;
                 font-weight: 700;
-                margin-bottom: 10px;
             }
 
             h4 {

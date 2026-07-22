@@ -10,7 +10,7 @@
     max-width: 394px;
     height: 100dvh;
     min-height: 100dvh;
-    padding: 40px 15px 0 15px;
+    padding: 40px 15px 0;
     overflow-y: auto;
     background: var(--color-white);
     box-shadow: 0 4px 28px 0 rgb(0 0 0 / 25%);
@@ -87,6 +87,5 @@
 
     @include bp.mq(mobile-xl) {
         width: 41px;
-        height: 10.513px;
     }
 }

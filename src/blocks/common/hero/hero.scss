@@ -8,10 +8,10 @@
 
     .hero-bg {
         position: absolute;
-        bottom: 0;
         right: 0;
-        max-width: 1460px;
+        bottom: 0;
         z-index: 0;
+        max-width: 1460px;
         pointer-events: none;
 
         @include bp.mq(laptop-l) {
@@ -31,8 +31,8 @@
         padding: 0;
         margin: -1px;
         overflow: hidden;
-        clip: rect(0, 0, 0, 0);
         border: 0;
+        clip-path: inset(0);
     }
 
     .slider {
@@ -76,16 +76,16 @@
                 width: 100%;
 
                 @include bp.mq(laptop) {
-                    min-height: auto;
                     flex-direction: column-reverse;
                     gap: 0;
+                    min-height: auto;
                 }
 
                 .content {
-                    flex: 0 0 60%;
-                    max-width: 60%;
                     position: relative;
                     z-index: 2;
+                    flex: 0 0 60%;
+                    max-width: 60%;
 
                     @include bp.mq(laptop) {
                         flex: none;
@@ -95,13 +95,13 @@
 
                 .image {
                     position: absolute;
-                    right: 0;
                     top: 45%;
-                    transform: translateY(-50%);
+                    right: 0;
                     z-index: 1;
-                    max-width: 50%;
                     width: 45%;
+                    max-width: 50%;
                     pointer-events: none;
+                    transform: translateY(-50%);
 
                     img {
                         display: block;
@@ -113,18 +113,18 @@
 
                     @include bp.mq(laptop) {
                         position: relative;
-                        left: auto;
                         top: auto;
+                        left: auto;
+                        z-index: 3;
                         display: flex;
                         justify-content: flex-end;
-                        transform: none;
-                        max-width: 100%;
-                        width: 100%;
-                        pointer-events: auto;
                         order: -1;
+                        width: 100%;
+                        max-width: 100%;
                         padding-bottom: 82px;
                         margin-top: -35px;
-                        z-index: 3;
+                        pointer-events: auto;
+                        transform: none;
 
                         img {
                             width: auto;
@@ -133,12 +133,12 @@
                     }
 
                     @include bp.mq(tablet) {
-                        margin-top: 0;
                         padding-bottom: 40px;
+                        margin-top: 0;
 
                         img {
-                            max-height: 300px;
                             max-width: 100%;
+                            max-height: 300px;
                         }
                     }
                 }
@@ -147,43 +147,43 @@
     }
 
     .hero__title {
+        margin-top: 0;
+        margin-bottom: 21px;
         font-family: var(--font-family-headings);
         font-size: 60px;
         font-style: normal;
         font-weight: 700;
         line-height: 110%;
         color: var(--color-black);
-        margin-bottom: 21px;
-        margin-top: 0;
 
         @include bp.mq(laptop-l) {
-            font-size: 45px;
             margin-bottom: 26px;
+            font-size: 45px;
         }
 
         @include bp.mq(laptop) {
-            font-size: 40px;
             margin-bottom: 17px;
+            font-size: 40px;
         }
 
         @include bp.mq(tablet) {
+            margin-bottom: 1px;
             font-size: 27px;
             line-height: 120%;
-            margin-bottom: 1px;
         }
     }
 
     .hero__subtitle {
+        margin-bottom: 68px;
         font-size: 30px;
         font-style: normal;
         font-weight: 400;
         line-height: 140%;
-        color: #312F2F;
-        margin-bottom: 68px;
+        color: #312f2f;
 
         @include bp.mq(laptop-l) {
-            font-size: 25px;
             margin-bottom: 41px;
+            font-size: 25px;
         }
 
         @include bp.mq(laptop) {
@@ -191,8 +191,8 @@
         }
 
         @include bp.mq(tablet) {
-            font-size: 18px;
             margin-bottom: 18px;
+            font-size: 18px;
         }
     }
 
@@ -221,20 +221,20 @@
         display: flex;
         flex-direction: column;
         gap: 10px;
+        padding: 25px 26px 30px;
         background: var(--color-white);
         border-radius: 5px;
-        padding: 25px 26px 30px 26px;
 
         @include bp.mq(laptop-l) {
-            padding: 15px 24px 31px 24px;
+            padding: 15px 24px 31px;
         }
 
         @include bp.mq(laptop) {
-            padding: 15px 16px 17px 16px;
+            padding: 15px 16px 17px;
         }
 
         @include bp.mq(tablet) {
-            padding: 11px 8px 4px 8px;
+            padding: 11px 8px 4px;
         }
     }
 
@@ -278,24 +278,24 @@
 
     .navigation {
         position: absolute;
-        bottom: 23px;
         right: 0; /* Пагинация справа */
+        bottom: 23px;
         left: auto; /* Отменяем left: 0 */
         z-index: 1;
         width: 100%;
         height: fit-content;
 
         @include bp.mq(laptop) {
-            bottom: 0;
             right: auto;
+            bottom: 0;
             left: 0;
         }
 
         .swiper-pagination {
             position: static;
             display: flex;
-            justify-content: flex-end; /* Выравнивание вправо */
             gap: 16px;
+            justify-content: flex-end; /* Выравнивание вправо */
             width: 100%;
             padding-right: 9%; /* Отступ от правого края */
 
@@ -335,7 +335,7 @@
                 &.swiper-pagination-bullet-active {
                     width: 235px;
                     height: 5px;
-                    background: #012F6B;
+                    background: #012f6b;
                     border-radius: 0;
                     opacity: 1;
 

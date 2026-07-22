@@ -1,23 +1,21 @@
 {# components/general/form/form.njk #}
 
 {% from "components/general/button/button.njk" import render as button %}
-{% from "components/general/select/select.njk" import render as select %}
 {% from "components/general/input/input.njk" import render as input %}
 {% from "components/general/textarea/textarea.njk" import render as textarea %}
 {% from "components/general/consent-checkbox/consent-checkbox.njk" import render as consentCheckbox %}
-{% from "components/general/input-file/input-file.njk" import render as inputFile %}
 
-{# Принимаем класс для кнопки извне #}
+{# Принимаем класс для кнопки и префикс id извне #}
 {% set formButtonClass = formButtonClass | default("button red") %}
+{% set formIdPrefix = formIdPrefix | default("feedback") %}
 
 <form class="form" data-validate>
     <div class="grid col-1">
-
         <div class="field">
-            <label class="label" for="feedback-name">Имя</label>
+            <label class="label" for="{{ formIdPrefix }}-name">Имя</label>
             {{ input(
                 type="text",
-                id="feedback-name",
+                id=formIdPrefix + "-name",
                 name="name",
                 placeholder="Имя*",
                 autocomplete="name",
@@ -27,11 +25,11 @@
             ) }}
         </div>
 
-       <div class="field">
-            <label class="label" for="feedback-phone">Телефон</label>
+        <div class="field">
+            <label class="label" for="{{ formIdPrefix }}-phone">Телефон</label>
             {{ input(
                 type="tel",
-                id="feedback-phone",
+                id=formIdPrefix + "-phone",
                 name="phone",
                 placeholder="Телефон*",
                 autocomplete="tel",
@@ -41,9 +39,9 @@
         </div>
 
         <div class="field">
-            <label class="label" for="feedback-message">Комментарий</label>
+            <label class="label" for="{{ formIdPrefix }}-message">Комментарий</label>
             {{ textarea(
-                id="feedback-message",
+                id=formIdPrefix + "-message",
                 name="message",
                 rows="6",
                 placeholder="Комментарий"
@@ -52,7 +50,7 @@
 
         <div class="field-consent">
             {{ consentCheckbox(
-                id="feedback-consent",
+                id=formIdPrefix + "-consent",
                 class="variant",
                 data={"error": "Необходимо отметить"},
                 required=true

@@ -17,40 +17,40 @@ export function similarProducts(context = document) {
         speed: 600,
         navigation: {
             nextEl: root.querySelector(".similar-products__next"),
-            prevEl: root.querySelector(".similar-products__prev"),
+            prevEl: root.querySelector(".similar-products__prev")
         },
         breakpoints: {
             320: {
                 slidesPerView: 1,
-                spaceBetween: 0,
+                spaceBetween: 0
             },
             768: {
                 slidesPerView: 2,
-                spaceBetween: 14,
+                spaceBetween: 14
             },
             1024: {
                 slidesPerView: 2,
-                spaceBetween: 20,
+                spaceBetween: 20
             },
             1200: {
                 slidesPerView: 4,
-                spaceBetween: 35,
-            },
+                spaceBetween: 35
+            }
         },
         observer: true,
         observeParents: true,
-        watchSlidesProgress: true,
+        watchSlidesProgress: true
     });
 
     // Обновляем слайдер при загрузке изображений
-    const images = slider.querySelectorAll('img');
+    const images = slider.querySelectorAll("img");
     if (images.length) {
         let loaded = 0;
-        images.forEach(img => {
+        images.forEach((img) => {
             if (img.complete) {
                 loaded++;
             } else {
-                img.addEventListener('load', () => {
+                img.addEventListener("load", () => {
                     loaded++;
                     if (loaded === images.length) {
                         swiper.update();
@@ -71,13 +71,13 @@ export function similarProducts(context = document) {
             swiper.update();
         }, 250);
     };
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     // Очистка при уничтожении
     root.addEventListener(
         "destroy",
         () => {
-            window.removeEventListener('resize', handleResize);
+            window.removeEventListener("resize", handleResize);
             swiper.destroy(true, true);
         },
         { once: true }

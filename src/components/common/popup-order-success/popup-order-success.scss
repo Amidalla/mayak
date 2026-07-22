@@ -1,9 +1,0 @@
-@use "core/popup" as *;
-
-.popup-order-success {
-    @include popup;
-
-    .image {
-        display: flex;
-    }
-}

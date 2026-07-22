@@ -5,7 +5,8 @@
     <div class="container">
         <!-- Блок с описанием результатов поиска -->
         <div class="search-result__info">
-            По запросу <span class="search-result__query">«Электродвигатели»</span> найдено <span class="search-result__count">186</span> товаров
+            По запросу <span class="search-result__query">«Электродвигатели»</span> найдено
+            <span class="search-result__count">186</span> товаров
         </div>
 
         <!-- Список с товарами -->
@@ -21,8 +22,8 @@
 
             <!-- Товар 2 (нет в наличии) -->
             {{ catalogCard({
-                image: './assets/images/content/search-img3.jpg',
-                name: 'ЭЭл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
+                image: './assets/images/content/search-img3.png',
+                name: 'Эл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
                 description: 'GU 5.5 / 1500 об.мин / IM 1081',
                 inStock: false,
                 link: './product.html'
@@ -39,7 +40,7 @@
 
             <!-- Товар 4 -->
             {{ catalogCard({
-                image: './assets/images/content/search-img3.jpg',
+                image: './assets/images/content/search-img3.png',
                 name: 'Эл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
                 description: 'GU 5.5 / 1500 об.мин / IM 1081',
                 inStock: true,
@@ -57,7 +58,7 @@
 
             <!-- Товар 6 -->
             {{ catalogCard({
-                image: './assets/images/content/search-img3.jpg',
+                image: './assets/images/content/search-img3.png',
                 name: 'Эл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
                 description: 'GU 5.5 / 1500 об.мин / IM 1081',
                 inStock: true,
@@ -75,7 +76,7 @@
 
             <!-- Товар 8 -->
             {{ catalogCard({
-                image: './assets/images/content/search-img3.jpg',
+                image: './assets/images/content/search-img3.png',
                 name: 'Эл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
                 description: 'GU 5.5 / 1500 об.мин / IM 1081',
                 inStock: true,
@@ -94,7 +95,7 @@
 
             <!-- Товар 10 (скрыт) -->
             {{ catalogCard({
-                image: './assets/images/content/search-img3.jpg',
+                image: './assets/images/content/search-img3.png',
                 name: 'Эл.двигатель 5АИ 112 М4 GU 5.5/1500 IM 1081',
                 description: 'GU 5.5 / 1500 об.мин / IM 1081',
                 inStock: false,
@@ -105,7 +106,14 @@
 
         <!-- Кнопка "Ещё" / "Скрыть" -->
         <div class="search-result__more">
-            <button class="search-result__more-btn button outline" id="showMoreBtn" data-text-more="Ещё" data-text-less="Скрыть">Ещё</button>
+            <button
+                class="search-result__more-btn button outline"
+                id="showMoreBtn"
+                data-text-more="Ещё"
+                data-text-less="Скрыть"
+            >
+                Ещё
+            </button>
         </div>
     </div>
 </section>
