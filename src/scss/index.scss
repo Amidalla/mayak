@@ -4,11 +4,8 @@
 @use "../../node_modules/swiper/swiper.css" as swiper;
 @use "../../node_modules/swiper/modules/navigation.css" as swiperNavigation;
 @use "../../node_modules/swiper/modules/pagination.css" as swiperPagination;
-@use "../../node_modules/swiper/modules/grid.css" as swiperGrid;
-@use "../../node_modules/swiper/modules/free-mode.css" as swiperFreeMode;
 @use "../../node_modules/swiper/modules/effect-fade.css" as swiperEffectFade;
 @use "../../node_modules/@fancyapps/ui/dist/fancybox/fancybox.css" as fancybox;
-@use "../../node_modules/nice-select2/dist/css/nice-select2.css" as niceSelect2;
 
 // --------------------------------------
 // -- Core
@@ -26,7 +23,6 @@
 @use "../components/general/button/button";
 @use "../components/general/textarea/textarea";
 @use "../components/general/input/input";
-@use "../components/general/checkbox/checkbox";
 @use "../components/general/form/form";
 @use "../components/general/menu/menu";
 @use "../components/general/navigation-top/navigation-top";
@@ -59,7 +55,6 @@
 // --------------------------------------
 @use "../blocks/general/header/header";
 @use "../blocks/general/footer/footer";
-@use "../blocks/general/sidebar/sidebar";
 @use "../blocks/general/section/section";
 @use "../blocks/general/error-404/error-404";
 

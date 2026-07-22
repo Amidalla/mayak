@@ -9,7 +9,6 @@ import { navigationMobile } from "../components/general/navigation-mobile/naviga
 import { hero } from "../blocks/common/hero/hero.js";
 import { header } from "../blocks/general/header/header.js";
 import { showPopup } from "./utils/popup.js";
-import { showAddedToCart } from "./utils/show-added-to-cart.js";
 import { searchForm } from "../components/general/search-form/search-form.js";
 import { searchResult } from "../blocks/common/search-result/search-result.js";
 import { initCustomScroll } from "./utils/custom-scroll.js";
@@ -66,7 +65,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 window.showPopup = showPopup;
-window.showAddedToCart = showAddedToCart;
 
 window.reinit = (context = document) => {
     init(context);

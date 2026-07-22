@@ -188,7 +188,6 @@ component-name/
 - **[Lozad.js](https://apoorv.pro/lozad.js/)** - Ленивая загрузка изображений (используйте класс `.lazy`)
 - **[Swiper](https://swiperjs.com/)** - Современный мобильный слайдер
 - **[Fancyapps UI](https://fancyapps.com/)** - Компонент лайтбокса и галереи
-- **[Nice Select 2](https://bluzky.github.io/nice-select2/)** - Стилизация выпадающих списков
 - **[imask](https://imask.js.org/)** - Маски для полей ввода
 
 ## Рабочий процесс разработки
@@ -293,32 +292,5 @@ window.showPopup("popup-feedback-success");
 
 **Доступные popup-id:**
 - `"popup-callback"` — обратный звонок
-- `"popup-order"` — заказать товар
-- `"popup-feedback"` — задать вопрос
-- `"popup-feedback-success"` — успешная отправка обратной связи
-- `"popup-callback-success"` — успешная отправка заявки на звонок
+- `"popup-feedback-success"` — успешная отправка формы
 
-### Добавление в корзину (inline-уведомление)
-
-```js
-// Показать "Добавлено" рядом с кнопкой
-window.showAddedToCart(buttonElement);
-```
-
-Вызывается после успешного добавления товара в корзину на бэке. Показывает бейдж "Добавлено" и скрывает через 2 сек.
-
-**Параметры:** `showAddedToCart(button, { text, duration })`
-- `button` (`HTMLElement`) — кнопка `.add-to-cart`
-- `text` (строка, по умолчанию `"Добавлено"`) — текст бейджа
-- `duration` (число, по умолчанию `2000`) — время показа в мс
-
-**Пример использования в Битриксе:**
-```js
-document.querySelectorAll(".add-to-cart").forEach((btn) => {
-    btn.addEventListener("click", () => {
-        // AJAX-запрос на добавление в корзину
-        fetch("/api/cart/add", { method: "POST" })
-            .then(() => window.showAddedToCart(btn));
-    });
-});
-```
