@@ -1,12 +1,71 @@
 @use "core/breakpoints" as bp;
 @use "core/mixins" as mixin;
 
+// На laptop и ниже: filter__header и заголовок в одной строке, пока влезают.
+// Заголовок справа; после переноса оба слева, на одном расстоянии до списка.
+.container.catalog-sidebar {
+    @include bp.mq(laptop) {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: flex-end;
+        justify-content: flex-start;
+        column-gap: 20px;
+        row-gap: 15px;
+
+        .page-sidebar,
+        .page-sidebar .inner,
+        .page-content,
+        .catalog-page {
+            display: contents;
+        }
+
+        .filter {
+            flex: 0 0 auto;
+            margin: 0 auto -33px 0;
+        }
+
+        .filter__header {
+            margin-bottom: 0;
+        }
+
+        .catalog-page__title {
+            flex: 0 0 auto;
+            min-width: max-content;
+            max-width: 100%;
+            margin: 0 0 33px 0;
+            text-align: right;
+        }
+
+        .catalog-content {
+            flex: 1 1 100%;
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding-top: 0;
+        }
+    }
+}
+
 .catalog-page {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+
     &__title {
-        margin-top: 0;
+        margin: 0;
 
         @include bp.mq(laptop) {
             font-size: 32px;
+            margin-bottom: 33px;
+            position: relative;
+            z-index: 2;
+        }
+
+        @include bp.mq(mobile-xl) {
+            width: 100%;
+            text-align: left !important;
+            margin-top: 45px !important;
+            margin-bottom: 50px !important;
         }
     }
 }
